@@ -181,10 +181,12 @@ export async function approveSubmission(id: string): Promise<{ success: boolean;
   pending.splice(index, 1);
 
   if (isSupabaseConfigured && supabase) {
-    const { error: delError } = await supabase.from('resources').delete().eq('id', id);
-    if (delError) throw delError;
-    const { error: insError } = await supabase.from('resources').insert(resourceToDb(item));
-    if (insError) throw insError;
+    // Use UPDATE instead of DELETE+INSERT to avoid RLS policy blocking approved status inserts
+    const { error } = await supabase
+      .from('resources')
+      .update({ status: 'approved' })
+      .eq('id', id);
+    if (error) throw error;
   } else {
     try {
       localStorage.setItem(LOCAL_STORAGE_SUBMISSIONS_KEY, JSON.stringify(pending));
