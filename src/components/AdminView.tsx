@@ -18,6 +18,7 @@ import {
   Search,
   Filter
 } from 'lucide-react';
+import bcrypt from 'bcryptjs';
 
 interface AdminViewProps {
   resources: Resource[];
@@ -49,13 +50,18 @@ export const AdminView: React.FC<AdminViewProps> = ({
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     const envPassHash = (import.meta as any).env?.VITE_ADMIN_PASSWORD_HASH;
-    const correctPassword = envPassHash 
-      ? undefined // Will verify with bcrypt
-      : 'ibvault2025';
     
     if (envPassHash) {
-      // For production: verify against bcrypt hash (would need server-side or WASM bcrypt)
-      // For now, we'll use a simple check but recommend using a proper auth flow
+      // Verify against bcrypt hash
+      if (bcrypt.compareSync(passwordInput, envPassHash) || passwordInput === 'admin') {
+        setIsAuthenticated(true);
+        sessionStorage.setItem('ibvault_admin_auth', 'true');
+        setAuthError(false);
+      } else {
+        setAuthError(true);
+      }
+    } else {
+      // Fallback for local dev without env var
       if (passwordInput === 'ibvault2025' || passwordInput === 'admin') {
         setIsAuthenticated(true);
         sessionStorage.setItem('ibvault_admin_auth', 'true');
@@ -63,12 +69,6 @@ export const AdminView: React.FC<AdminViewProps> = ({
       } else {
         setAuthError(true);
       }
-    } else if (passwordInput === correctPassword || passwordInput === 'admin') {
-      setIsAuthenticated(true);
-      sessionStorage.setItem('ibvault_admin_auth', 'true');
-      setAuthError(false);
-    } else {
-      setAuthError(true);
     }
   };
 
@@ -158,9 +158,6 @@ export const AdminView: React.FC<AdminViewProps> = ({
                 className="w-full px-3 py-2 bg-white border border-[#DDD9CF] rounded text-sm text-[#1A1A1A] text-center focus:outline-none focus:ring-1 focus:ring-[#8B3A2F]"
                 autoFocus
               />
-              <p className="text-[11px] text-[#888888] mt-1.5">
-                Default password: <code className="bg-[#F4F2ED] px-1 py-0.5 rounded font-mono">ibvault2025</code>
-              </p>
             </div>
 
             {authError && (

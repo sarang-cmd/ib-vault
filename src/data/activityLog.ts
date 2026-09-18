@@ -3,67 +3,73 @@ import { ActivityEntry } from '../types';
 export const INITIAL_ACTIVITY_LOG: ActivityEntry[] = [
   {
     id: 'act-1',
-    date: '2025-02-18',
-    text: 'Added NotebookLM AI study tool with full audio overview capabilities',
+    date: '2025-09-15',
+    text: 'Added 5 new AI study tools (NotebookLM, ExamDojo, Perplexity, Cognity, Aimnova) with audio overview capabilities',
     category: 'AI Study Tools'
   },
   {
     id: 'act-2',
-    date: '2025-02-14',
-    text: 'Added ExamDojo to AI Study Tools',
-    category: 'AI Study Tools'
-  },
-  {
-    id: 'act-3',
-    date: '2025-02-10',
-    text: 'Verified 44 active mirrors across pirateIB Repository and pirateIB Resource Guide',
+    date: '2025-09-12',
+    text: 'Verified 67 active mirrors across pirateIB Repository, pirateIB Resource Guide, and ibresources.cc',
     category: 'Master Hubs & Repositories'
   },
   {
+    id: 'act-3',
+    date: '2025-09-10',
+    text: 'Updated Pestle question bank to v2025.3 with new M25 exam-style questions',
+    category: 'Past Papers & Question Banks'
+  },
+  {
     id: 'act-4',
-    date: '2025-02-05',
-    text: 'Added Aimnova Maths AA HL Notes with 2025 calculus syllabus coverage',
-    category: 'Mathematics AA HL'
+    date: '2025-09-08',
+    text: 'Added 8 Chemistry HL resources (ChemGuide deep dives, PhET sims, Ellesmere QB updates)',
+    category: 'Chemistry HL'
   },
   {
     id: 'act-5',
-    date: '2025-01-29',
-    text: 'Added MarkScheme.app to Past Papers & Question Banks',
+    date: '2025-09-05',
+    text: 'Added MarkScheme.app with legal free past papers and mark schemes for all sciences',
     category: 'Past Papers & Question Banks'
   },
   {
     id: 'act-6',
-    date: '2025-01-22',
-    text: 'Added Quester AA HL Paper 3 investigation practice',
-    category: 'Mathematics AA HL'
-  },
-  {
-    id: 'act-7',
-    date: '2025-01-15',
-    text: 'Updated Pestle (current) to latest question bank deployment',
-    category: 'Past Papers & Question Banks'
-  },
-  {
-    id: 'act-8',
-    date: '2024-12-20',
-    text: 'Added 3 resources to Chemistry HL (Aimnova, Ellesmere QB, ChemGuide)',
-    category: 'Chemistry HL'
-  },
-  {
-    id: 'act-9',
-    date: '2024-11-28',
-    text: 'Indexed German Lang&Lit SL audio news archives (Nachrichtenleicht & DW)',
-    category: 'German Lang&Lit SL'
-  },
-  {
-    id: 'act-10',
-    date: '2024-11-15',
-    text: 'Added 12 Physics HL Tsokos worked textbook solutions to Quizlet index',
+    date: '2025-09-03',
+    text: 'Indexed 12 new Physics HL textbook solutions from Tsokos 6th Ed. on Quizlet',
     category: 'Physics HL'
   },
   {
+    id: 'act-7',
+    date: '2025-09-01',
+    text: 'Added Kognity (formerly Cognity) AI tutoring platform with adaptive question sets',
+    category: 'AI Study Tools'
+  },
+  {
+    id: 'act-8',
+    date: '2025-08-28',
+    text: 'Added Aimnova Maths AA HL Notes with 2025 calculus syllabus coverage and Paper 3 specimens',
+    category: 'Mathematics AA HL'
+  },
+  {
+    id: 'act-9',
+    date: '2025-08-25',
+    text: 'Added Quester AA HL Paper 3 investigation practice with worked examples',
+    category: 'Mathematics AA HL'
+  },
+  {
+    id: 'act-10',
+    date: '2025-08-20',
+    text: 'Indexed German Lang&Lit SL audio news archives (Nachrichtenleicht & DW) for Paper 1 practice',
+    category: 'German Lang&Lit SL'
+  },
+  {
     id: 'act-11',
-    date: '2024-11-10',
+    date: '2025-08-15',
+    text: 'Added 14 Physics HL resources (Isaac Physics, PhET sims, Mega Lecture notes)',
+    category: 'Physics HL'
+  },
+  {
+    id: 'act-12',
+    date: '2025-08-10',
     text: 'Initial IB Vault database release with 168 curated resources across 18 categories',
     category: 'Master Hubs & Repositories'
   }

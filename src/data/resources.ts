@@ -1380,8 +1380,8 @@ export const INITIAL_RESOURCES: Resource[] = [
   },
   {
     "id": "cognity-ai-study-tools",
-    "name": "Cognity",
-    "url": "https://app.cognity.com",
+    "name": "Kognity",
+    "url": "https://app.kognity.com",
     "description": "AI tutoring with adaptive question sets",
     "category": "AI Study Tools",
     "cost": "Freemium",
