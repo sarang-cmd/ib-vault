@@ -1,0 +1,30 @@
+name: IB Vault Monthly Link Checker
+
+on:
+  schedule:
+    # Run at 00:00 on the 1st day of every month
+    - cron: '0 0 1 * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run link checker
+        run: |
+          python scripts/link_checker.py
+
+      - name: Commit and push broken status updates
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action Bot"
+          git add src/data/resources.json link_check_report.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: flag dead links as broken [skip ci]" && git push)

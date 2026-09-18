@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-page: #F4F2ED;
+    --bg-column: #FAFAF8;
+    --border-column: #E5E2DA;
+    --text-primary: #1A1A1A;
+    --text-body: #333333;
+    --brand-logo: #8B3A2F;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-body);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary);
+  }
+
+  /* Spec: links are plain black, underlined text */
+  .vault-link {
+    color: #1A1A1A;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+    transition: color 0.15s ease, text-decoration-color 0.15s ease;
+  }
+
+  .vault-link:hover {
+    color: #000000;
+    text-decoration-thickness: 1.5px;
+  }
+}
+
+.font-logo {
+  font-family: 'Fraunces', 'Poppins', Georgia, serif;
+}
+
+/* Custom scrollbars for the Trello-style board */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 8px;
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #EBE8E1;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #CCC6B8;
+  border-radius: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #B3ADA0;
+}
+
+/* Print styling for PDF export */
+@media print {
+  header, nav, .no-print, button {
+    display: none !important;
+  }
+  body, .print-container {
+    background: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .print-page-break {
+    page-break-before: always;
+  }
+}
