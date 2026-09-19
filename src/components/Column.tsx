@@ -49,7 +49,7 @@ export const Column: React.FC<ColumnProps> = ({
         style={{ backgroundColor: color, color: textColor }}
       >
         <div className="flex items-center gap-2 min-w-0">
-          <CategoryIcon name={iconName} className="w-4 h-4 flex-shrink-0" />
+          <CategoryIcon name={iconName} className="w-4 h-4 flex-shrink-0" color="#1A1A1A" />
           <h2 className="font-semibold text-[13.5px] tracking-tight truncate leading-tight">
             {title}
           </h2>

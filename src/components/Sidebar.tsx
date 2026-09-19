@@ -173,7 +173,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                       className="w-2.5 h-2.5 rounded-full flex-shrink-0"
                       style={{ backgroundColor: cat.color }}
                     />
-                    <CategoryIcon name={cat.iconName} className="w-3.5 h-3.5 flex-shrink-0 opacity-70" />
+                    <CategoryIcon name={cat.iconName} className="w-3.5 h-3.5 flex-shrink-0 opacity-70" color="#1A1A1A" />
                     <span className="truncate">{cat.name}</span>
                   </button>
                 );
