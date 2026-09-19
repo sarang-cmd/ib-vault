@@ -38,7 +38,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: 'IB Vault',
+        title: 'Vault-IB',
         text: 'Curated free study resources for the IB Diploma Programme',
         url: window.location.origin
       }).catch(() => {});
@@ -65,7 +65,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
       {/* Main Title */}
       <div className="mb-10 border-b border-[#E5E2DA] pb-6">
         <h1 className="font-logo text-3xl sm:text-4xl font-extrabold text-[#8B3A2F] tracking-tight">
-          About IB Vault
+          About Vault-IB
         </h1>
         <p className="mt-2 text-base text-[#555555]">
           A clean, static-first directory of free study resources for International Baccalaureate (IB) Diploma candidates.
@@ -118,25 +118,25 @@ export const AboutView: React.FC<AboutViewProps> = ({
       <div className="space-y-10 text-[15px] leading-relaxed text-[#333333]">
         <section>
           <h2 className="text-xl font-bold text-[#1A1A1A] mb-3">
-            About IB Vault
+            About Vault-IB
           </h2>
           <p className="mb-3">
-            IB Vault is an open, community-curated index of the most effective free and freemium resources available for the International Baccalaureate Diploma Programme (IBDP).
+            Vault-IB is an open, community-curated index of the most effective free and freemium resources available for the International Baccalaureate Diploma Programme (IBDP).
           </p>
           <p>
-            Rather than relying on closed chat threads, broken Google Drive folders, or Reddit megathreads that decay over time, IB Vault organizes essential learning assets into an intuitive, lightweight index-card board that loads instantly on any connection and works on all devices.
+            Rather than relying on closed chat threads, broken Google Drive folders, or Reddit megathreads that decay over time, Vault-IB organizes essential learning assets into an intuitive, lightweight index-card board that loads instantly on any connection and works on all devices.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-[#1A1A1A] mb-3">
-            Why IB Vault exists
+            Why Vault-IB exists
           </h2>
           <p className="mb-3">
             The IB Diploma is demanding, and commercial prep resources can be prohibitively expensive. At the same time, the global IB community has produced thousands of exceptional free materials: worked textbook solutions, interactive graphing simulators, teacher lecture series, paper analysis breakdowns, and exemplar investigations.
           </p>
           <p>
-            However, these tools are often scattered across ephemeral repositories, changing mirror domains, Discord servers, and student personal blogs. IB Vault centralizes these links, continuously monitors mirror health, and preserves access so no student has to pay hundreds of dollars for study aids that community volunteers have already made accessible.
+            However, these tools are often scattered across ephemeral repositories, changing mirror domains, Discord servers, and student personal blogs. Vault-IB centralizes these links, continuously monitors mirror health, and preserves access so no student has to pay hundreds of dollars for study aids that community volunteers have already made accessible.
           </p>
         </section>
 
@@ -177,7 +177,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
             How to Contribute
           </h2>
           <p className="mb-4">
-            IB Vault is maintained through community submissions and automated link checking. You can help keep it accurate and complete:
+            Vault-IB is maintained through community submissions and automated link checking. You can help keep it accurate and complete:
           </p>
 
           <ul className="list-disc pl-6 space-y-2 text-[#1A1A1A]">

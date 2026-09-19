@@ -36,7 +36,7 @@ export function exportCategoryToPdf(categoryTitle: string, resources: Resource[]
     <!DOCTYPE html>
     <html>
       <head>
-        <title>IB Vault — ${categoryTitle} Export</title>
+        <title>Vault-IB — ${categoryTitle} Export</title>
         <style>
           @page {
             margin: 1.5cm;
@@ -101,7 +101,7 @@ export function exportCategoryToPdf(categoryTitle: string, resources: Resource[]
       </head>
       <body>
         <div class="header">
-          <h1 class="title">IB VAULT</h1>
+          <h1 class="title">VAULT-IB</h1>
           <h2 class="subtitle">Category: ${categoryTitle}</h2>
           <div class="meta">Exported on ${dateStr} • ${resources.length} curated free resources listed</div>
         </div>
@@ -122,7 +122,7 @@ export function exportCategoryToPdf(categoryTitle: string, resources: Resource[]
         </table>
 
         <div class="footer">
-          <div>IB Vault — Curated Free IB Diploma Programme Study Resources Hub</div>
+          <div>Vault-IB — Curated Free IB Diploma Programme Study Resources Hub</div>
           <div>Printed from ibvault.org</div>
         </div>
       </body>

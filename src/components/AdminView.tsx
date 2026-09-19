@@ -142,7 +142,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
           </div>
 
           <h1 className="text-xl font-bold text-[#1A1A1A] tracking-tight">
-            IB Vault Admin Portal
+            Vault-IB Admin Portal
           </h1>
           <p className="text-xs text-[#666666] mt-1 mb-6">
             Enter administrator password to manage pending resource submissions and mirror health.

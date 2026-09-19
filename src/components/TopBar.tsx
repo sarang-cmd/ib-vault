@@ -38,7 +38,7 @@ export const TopBar: React.FC<TopBarProps> = ({
             className="flex items-baseline gap-2 text-left focus:outline-none group cursor-pointer"
           >
             <span className="font-logo font-extrabold text-2xl sm:text-[26px] tracking-tight text-[#8B3A2F] leading-none select-none">
-              IB VAULT
+              VAULT-IB
             </span>
             <span className="hidden md:inline-block text-[12px] font-medium text-[#777777] border-l border-[#DCD7CE] pl-2 leading-none">
               {totalCount} Free DP Resources

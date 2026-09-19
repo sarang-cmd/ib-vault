@@ -61,7 +61,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="p-4 border-b border-[#E5E2DA] flex items-center justify-between bg-[#F4F2ED]">
           <div>
             <span className="font-logo font-black text-xl text-[#8B3A2F] tracking-tight">
-              IB VAULT
+              VAULT-IB
             </span>
             <p className="text-[11px] text-[#777777] font-medium mt-0.5">
               Diploma Programme Index
@@ -205,7 +205,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded hover:bg-[#E5E2DA] text-[#333333] hover:text-[#1A1A1A] text-left cursor-pointer"
           >
             <Info className="w-3.5 h-3.5 text-[#1A1A1A]" />
-            <span>About IB Vault</span>
+            <span>About Vault-IB</span>
           </button>
 
           <button

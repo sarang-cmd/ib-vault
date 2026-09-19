@@ -216,7 +216,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
       {/* Floating Back to Top Button */}
       <div className="mt-12 pt-6 border-t border-[#E5E2DA] flex items-center justify-between text-xs text-[#777777]">
         <p>
-          IB Vault is a free, non-commercial directory for IB Diploma Programme candidates.
+          Vault-IB is a free, non-commercial directory for IB Diploma Programme candidates.
         </p>
         <button
           type="button"

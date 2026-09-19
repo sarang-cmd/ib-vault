@@ -166,7 +166,7 @@ export function App() {
       );
       exportCategoryToPdf(catResources[0]?.category || 'Category', catResources);
     } else {
-      exportCategoryToPdf('Full IB Vault Directory', resources);
+      exportCategoryToPdf('Full Vault-IB Directory', resources);
     }
   };
 
@@ -176,7 +176,7 @@ export function App() {
         <div className="fixed inset-0 z-50 bg-[#F4F2ED] flex items-center justify-center">
           <div className="text-center">
             <div className="w-10 h-10 border-3 border-[#8B3A2F] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-            <p className="text-sm text-[#666666]">Loading IB Vault...</p>
+            <p className="text-sm text-[#666666]">Loading Vault-IB...</p>
           </div>
         </div>
       )}

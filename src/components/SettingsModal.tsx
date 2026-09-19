@@ -119,7 +119,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
           {/* About Metadata */}
           <div className="text-center pt-2 text-[11px] text-[#888888]">
-            <p>IB Vault v3.0 • Built with Vite, React, TypeScript & Tailwind CSS</p>
+            <p>Vault-IB v3.0 • Built with Vite, React, TypeScript & Tailwind CSS</p>
             <p className="mt-0.5">Non-commercial educational archive for the IB DP community</p>
           </div>
         </div>
