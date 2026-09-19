@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import { Resource } from '../types';
 import { CATEGORY_DEFINITIONS, PINNED_COLUMNS } from '../data/categories';
 import { Column } from './Column';
-import { Filter, ArrowUp, ChevronUp, ChevronDown } from 'lucide-react';
+import { Filter, ArrowUp } from 'lucide-react';
 
 interface ColumnConfig {
   id: string;
@@ -77,12 +77,6 @@ export const BoardView: React.FC<BoardViewProps> = ({
       return {};
     }
   });
-  const [showFilters, setShowFilters] = useState(false);
-  const [costFilter, setCostFilter] = useState<'all' | 'Free' | 'Freemium'>('all');
-  const [categoryFilter, setCategoryFilter] = useState<string>('all');
-  const [statusFilter, setStatusFilter] = useState<'all' | 'approved' | 'broken'>('all');
-  const [sortBy, setSortBy] = useState<'name' | 'category' | 'rating' | 'date' | 'clicks'>('name');
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
 
   // Save subject group to localStorage
   useEffect(() => {
@@ -223,15 +217,6 @@ export const BoardView: React.FC<BoardViewProps> = ({
   }, [selectedSubjectGroup]);
 
   // Filter resources by cost, category, status
-  const filteredResources = useMemo(() => {
-    return resources.filter(r => {
-      const matchesCost = costFilter === 'all' || r.cost === costFilter;
-      const matchesCategory = categoryFilter === 'all' || r.category === categoryFilter;
-      const matchesStatus = statusFilter === 'all' || r.status === statusFilter;
-      return matchesCost && matchesCategory && matchesStatus;
-    });
-  }, [resources, costFilter, categoryFilter, statusFilter]);
-
   // Build column configs - only show pinned columns when "All Columns" is selected
   const columnConfigs = useMemo((): ColumnConfig[] => {
     const configs: ColumnConfig[] = [];
@@ -315,9 +300,9 @@ export const BoardView: React.FC<BoardViewProps> = ({
     }
     
     // For filtered views, use saved order for all columns
-    const configMap = new Map(columnConfigs.map(c => [c.id, c]));
+    const configMap2 = new Map(columnConfigs.map(c => [c.id, c]));
     const ordered = columnOrder
-      .map(id => configMap.get(id))
+      .map(id => configMap2.get(id))
       .filter((c): c is ColumnConfig => c !== undefined);
     const remaining = columnConfigs.filter(c => !columnOrder.includes(c.id));
     return [...ordered, ...remaining];
