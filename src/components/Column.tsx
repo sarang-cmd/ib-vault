@@ -99,7 +99,7 @@ export const Column: React.FC<ColumnProps> = ({
           </div>
         ) : (
           <div className="py-6 px-2 text-center my-auto">
-            {isFavoritesColumn ? (
+{isFavoritesColumn ? (
               <div className="space-y-2">
                 <p className="text-xs text-[#777777] italic">No favorites</p>
                 <button
@@ -107,8 +107,8 @@ export const Column: React.FC<ColumnProps> = ({
                   onClick={onOpenAddFavoriteModal}
                   className="inline-flex items-center gap-1 text-xs text-[#1A1A1A] underline hover:text-[#B85C8A] font-medium cursor-pointer"
                 >
-<Plus className="w-3 h-3 text-[#1A1A1A]" />
-                  <span>+ Add to favorites</span>
+                  <Plus className="w-3 h-3 text-[#1A1A1A]" />
+                  <span>Add to favorites</span>
                 </button>
               </div>
             ) : (
@@ -128,7 +128,7 @@ export const Column: React.FC<ColumnProps> = ({
               <Plus className="w-3 h-3" />
               <span>Add more</span>
             </button>
-            <span>Saved locally</span>
+            <span>Saved in browser</span>
           </div>
         )}
       </div>

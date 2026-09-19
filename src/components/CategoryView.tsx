@@ -117,7 +117,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                 {meta.name}
               </h1>
               <p className="text-xs opacity-90 mt-0.5">
-                {categoryResources.length} Free & Freemium Resources Available
+                {categoryResources.length} free and freemium resources available
               </p>
             </div>
           </div>
@@ -133,7 +133,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
             <Search className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <input
               type="text"
-              placeholder={`Filter in ${meta.name}...`}
+              placeholder={`Filter ${meta.name}`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-transparent border-0 focus:outline-none text-xs text-[#1A1A1A] placeholder-[#888888]"
@@ -266,20 +266,20 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                     <span className="ml-1 text-xs text-[#555555]">Rating {resource.rank}/5</span>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={() => onReportResource(resource)}
-                    className="text-[11px] text-[#777777] hover:text-[#C97064] underline cursor-pointer"
-                  >
-                    Report link issue
-                  </button>
+<button
+                      type="button"
+                      onClick={() => onReportResource(resource)}
+                      className="text-[11px] text-[#777777] hover:text-[#C97064] underline cursor-pointer"
+                    >
+                      Report issue
+                    </button>
                 </div>
               </div>
             );
           })
         ) : (
           <div className="p-8 text-center bg-[#FAFAF8] border border-[#E5E2DA] rounded">
-            <p className="text-sm text-[#777777]">No resources match your search criteria.</p>
+            <p className="text-sm text-[#777777]">No resources match your search</p>
           </div>
         )}
       </div>
@@ -287,7 +287,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
       {/* Other Categories Browser */}
       <div className="mt-12 pt-6 border-t border-[#E5E2DA]">
         <h3 className="text-xs font-bold text-[#777777] uppercase tracking-wider mb-3">
-          Explore Other Categories
+          Other Categories
         </h3>
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
           {CATEGORY_DEFINITIONS.filter(c => c.slug !== slug).map((other) => (

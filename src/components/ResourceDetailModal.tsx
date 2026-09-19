@@ -103,7 +103,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
           {/* Description */}
           <div className="bg-white p-3.5 rounded border border-[#EBE7DF]">
             <h3 className="text-xs font-bold text-[#777777] uppercase tracking-wider mb-1">
-              Description & Syllabus Utility
+              Description
             </h3>
             <p className="text-sm text-[#333333] leading-relaxed">
               {resource.description}
@@ -118,12 +118,12 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
                 {resource.status === 'broken' ? (
                   <>
                     <AlertTriangle className="w-3.5 h-3.5 text-[#1A1A1A]" />
-                    <span className="text-[#C97064]">Mirror Issues</span>
+                    <span className="text-[#C97064]">Broken</span>
                   </>
                 ) : (
                   <>
                     <ShieldCheck className="w-3.5 h-3.5 text-[#1A1A1A]" />
-                    <span>Verified Link</span>
+                    <span>Verified</span>
                   </>
                 )}
               </div>
@@ -160,7 +160,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
               }`}
             >
               <Bookmark className={`w-3.5 h-3.5 ${isFavorite ? 'fill-[#1A1A1A]' : ''} text-[#1A1A1A]`} />
-              <span>{isFavorite ? 'Saved in Favorites' : 'Add to Favorites'}</span>
+              <span>{isFavorite ? 'Saved' : 'Add to Favorites'}</span>
             </button>
           </div>
 
@@ -174,7 +174,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
               }}
               className="underline hover:text-[#1A1A1A] inline-flex items-center gap-0.5 cursor-pointer"
             >
-              <span>See more in {resource.category}</span>
+              <span>More in {resource.category}</span>
               <ArrowRight className="w-3 h-3 text-[#1A1A1A]" />
             </button>
 
@@ -186,7 +186,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
               }}
               className="underline hover:text-[#C97064] cursor-pointer"
             >
-              Report broken URL
+              Report issue
             </button>
           </div>
         </div>

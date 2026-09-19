@@ -45,7 +45,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({
           <div className="flex items-center gap-2">
             <AlertTriangle className="w-4 h-4 text-[#1A1A1A]" />
             <h2 className="text-base font-bold text-[#1A1A1A]">
-              Report Broken Link / Mirror
+              Report Issue
             </h2>
           </div>
           <button
@@ -64,7 +64,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({
               Thank you for reporting.
             </p>
             <p className="text-xs text-[#555555]">
-              This link has been flagged with <code>status: "broken"</code> in the database. Our maintainers and link-checker robot will verify alternate mirrors.
+              This link has been flagged with <code>status: "broken"</code> in the database. Maintainers will verify alternate mirrors.
             </p>
             <button
               type="button"
@@ -92,10 +92,10 @@ export const ReportModal: React.FC<ReportModalProps> = ({
                 onChange={(e) => setIssueType(e.target.value)}
                 className="w-full px-2.5 py-1.5 bg-white border border-[#DDD9CF] rounded text-xs text-[#1A1A1A] focus:outline-none focus:ring-1 focus:ring-[#8B3A2F]"
               >
-                <option value="broken_link">404 Not Found / Domain Inactive</option>
-                <option value="paywall">Hit a strict paywall / No longer free</option>
-                <option value="outdated">Outdated syllabus (old specs pre-2025)</option>
-                <option value="incorrect_meta">Wrong subject category or description</option>
+                <option value="broken_link">404 Not Found or Domain Inactive</option>
+                <option value="paywall">Paywall or No Longer Free</option>
+                <option value="outdated">Outdated Syllabus</option>
+                <option value="incorrect_meta">Wrong Category or Description</option>
               </select>
             </div>
 
@@ -105,7 +105,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({
               </label>
               <textarea
                 rows={2}
-                placeholder="Optional: provide a working mirror URL or description of what failed..."
+                placeholder="Optional: provide a working mirror URL or description of what failed"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
                 className="w-full px-2.5 py-1.5 bg-white border border-[#DDD9CF] rounded text-xs text-[#1A1A1A] focus:outline-none focus:ring-1 focus:ring-[#8B3A2F]"
@@ -125,7 +125,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded bg-[#C97064] text-white hover:bg-[#b05c51] cursor-pointer"
               >
                 <Send className="w-3 h-3 text-white" />
-                <span>Submit Report</span>
+                <span>Submit</span>
               </button>
             </div>
           </form>

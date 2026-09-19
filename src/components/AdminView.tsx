@@ -82,21 +82,21 @@ export const AdminView: React.FC<AdminViewProps> = ({
     if (res.success) {
       setPendingList(await getPendingSubmissions());
       await onRefreshResources();
-      showNotice(`Approved "${res.resource?.name}" and added to board.`);
+      showNotice(`Approved ${res.resource?.name} and added to board.`);
     }
   };
 
   const handleReject = async (id: string) => {
     await rejectSubmission(id);
     setPendingList(await getPendingSubmissions());
-    showNotice('Submission rejected.');
+    showNotice('Submission rejected');
   };
 
   const handleToggleBroken = async (id: string, currentStatus: ResourceStatus) => {
     const newStatus = currentStatus === 'broken' ? 'approved' : 'broken';
     await updateResourceStatus(id, newStatus);
     await onRefreshResources();
-    showNotice(`Updated resource status to "${newStatus}".`);
+    showNotice(`Updated resource status to ${newStatus}`);
   };
 
   const handleResetDefaults = async () => {
@@ -104,7 +104,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
       await resetResourcesToDefault();
       await onRefreshResources();
       setPendingList(await getPendingSubmissions());
-      showNotice('Database reset to initial 168 resources.');
+      showNotice('Database reset to initial 168 resources');
     }
   };
 
@@ -145,7 +145,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
             Vault-IB Admin Portal
           </h1>
           <p className="text-xs text-[#666666] mt-1 mb-6">
-            Enter administrator password to manage pending resource submissions and mirror health.
+            Enter admin password to manage pending submissions and mirror health.
           </p>
 
           <form onSubmit={handleLogin} className="space-y-4">
@@ -192,18 +192,18 @@ export const AdminView: React.FC<AdminViewProps> = ({
             <ArrowLeft className="w-4 h-4 text-[#1A1A1A]" />
           </button>
           <div>
-            <div className="flex items-center gap-2">
-              <h1 className="text-2xl font-bold text-[#1A1A1A] tracking-tight">
-                Vault Maintainer Dashboard
-              </h1>
-              <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 bg-[#8FAE72]/20 text-[#3e6820] rounded-full">
-                <ShieldCheck className="w-3 h-3 text-[#1A1A1A]" />
-                <span>Authenticated</span>
-              </span>
-            </div>
-            <p className="text-xs text-[#666666] mt-0.5">
-              Review community contributions and manage link health status
-            </p>
+<div className="flex items-center gap-2">
+            <h1 className="text-2xl font-bold text-[#1A1A1A] tracking-tight">
+              Vault Maintainer Dashboard
+            </h1>
+            <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 bg-[#8FAE72]/20 text-[#3e6820] rounded-full">
+              <ShieldCheck className="w-3 h-3 text-[#1A1A1A]" />
+              <span>Authenticated</span>
+            </span>
+          </div>
+          <p className="text-xs text-[#666666] mt-0.5">
+            Review community contributions and manage link health
+          </p>
           </div>
         </div>
 
@@ -353,7 +353,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
               <Search className="w-3.5 h-3.5 text-[#1A1A1A]" />
               <input
                 type="text"
-                placeholder="Search across all resources..."
+                placeholder="Search resources"
                 value={filterQuery}
                 onChange={(e) => setFilterQuery(e.target.value)}
                 className="w-full bg-transparent border-0 focus:outline-none text-xs text-[#1A1A1A]"
@@ -443,7 +443,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
             </table>
             {filteredAllResources.length > 50 && (
               <div className="p-3 text-center text-xs text-[#777777] border-t border-[#E5E2DA]">
-                Showing first 50 of {filteredAllResources.length} items. Refine search to see more.
+                Showing first 50 of {filteredAllResources.length} items. Refine search to see more
               </div>
             )}
           </div>

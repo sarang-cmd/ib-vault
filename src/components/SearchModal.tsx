@@ -73,7 +73,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
           <input
             ref={inputRef}
             type="text"
-            placeholder="Search all 168+ resources, topics, calculators, past papers..."
+            placeholder="Search resources"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="w-full bg-transparent border-0 text-sm sm:text-base text-[#1A1A1A] placeholder-[#888888] focus:outline-none"
@@ -209,14 +209,14 @@ export const SearchModal: React.FC<SearchModalProps> = ({
             })
           ) : (
             <div className="p-8 text-center text-xs text-[#777777]">
-              No resources found matching "{query}".
+              No resources found for "{query}"
             </div>
           )}
         </div>
 
         {/* Modal Footer */}
         <div className="p-2.5 bg-[#F4F2ED] border-t border-[#E5E2DA] flex items-center justify-between text-[11px] text-[#777777] px-4">
-          <span>Search links, descriptions, and category tags</span>
+          <span>Search links descriptions and category tags</span>
           <span>Press ESC to exit</span>
         </div>
       </div>

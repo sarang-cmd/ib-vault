@@ -64,7 +64,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               VAULT-IB
             </span>
             <p className="text-[11px] text-[#777777] font-medium mt-0.5">
-              Diploma Programme Index
+              Diploma Programme Resources
             </p>
           </div>
           <button
@@ -90,7 +90,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded hover:bg-[#EBE8E0] text-[#1A1A1A] transition-colors cursor-pointer text-left"
             >
               <Home className="w-4 h-4 text-[#1A1A1A]" />
-              <span>Home (Board View)</span>
+              <span>Home</span>
             </button>
 
             <button
@@ -119,7 +119,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded hover:bg-[#EBE8E0] text-[#1A1A1A] transition-colors cursor-pointer text-left"
             >
               <Flame className="w-4 h-4 text-[#1A1A1A]" />
-              <span>Trending This Week</span>
+              <span>Trending</span>
             </button>
 
             <button
@@ -143,13 +143,13 @@ export const Sidebar: React.FC<SidebarProps> = ({
               className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded hover:bg-[#EBE8E0] text-[#1A1A1A] transition-colors cursor-pointer text-left"
             >
               <Clock className="w-4 h-4 text-[#1A1A1A]" />
-              <span>Activity Log & Stats</span>
+              <span>Activity Log</span>
             </button>
           </div>
 
           <div className="border-t border-[#E5E2DA] my-2 pt-2">
             <h3 className="px-3 text-[11px] font-bold text-[#888888] uppercase tracking-wider mb-1.5">
-              Categories ({CATEGORY_DEFINITIONS.length})
+              Categories
             </h3>
 
             <div className="space-y-0.5">
@@ -193,7 +193,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded hover:bg-[#E5E2DA] text-[#333333] hover:text-[#1A1A1A] text-left cursor-pointer"
           >
             <Send className="w-3.5 h-3.5 text-[#1A1A1A]" />
-            <span>Suggest a Resource</span>
+            <span>Suggest Resource</span>
           </button>
 
           <button
@@ -205,7 +205,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded hover:bg-[#E5E2DA] text-[#333333] hover:text-[#1A1A1A] text-left cursor-pointer"
           >
             <Info className="w-3.5 h-3.5 text-[#1A1A1A]" />
-            <span>About Vault-IB</span>
+            <span>About</span>
           </button>
 
           <button
@@ -217,7 +217,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded hover:bg-[#E5E2DA] text-[#666666] hover:text-[#1A1A1A] text-left cursor-pointer"
           >
             <Shield className="w-3.5 h-3.5 text-[#1A1A1A]" />
-            <span>Admin Portal</span>
+            <span>Admin</span>
           </button>
 
           <a
@@ -226,7 +226,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             rel="noopener noreferrer"
             className="w-full flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-[#E5E2DA] text-[#666666] hover:text-[#1A1A1A] text-left"
           >
-            <span>r/IBO Community</span>
+            <span>r/IBO</span>
             <ExternalLink className="w-3 h-3 text-[#1A1A1A]" />
           </a>
         </div>

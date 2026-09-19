@@ -78,7 +78,7 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
             Suggest a Resource
           </h2>
           <p className="text-xs text-[#666666] mt-0.5">
-            Know a valuable free textbook, question bank, or revision tool? Submit it to the vault.
+            Know a valuable free textbook, question bank, or revision tool? Submit it.
           </p>
         </div>
         {!isStandalonePage && (
@@ -99,7 +99,7 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
             Resource Queued for Review
           </h3>
           <p className="text-xs text-[#555555] max-w-md mx-auto leading-relaxed">
-            Your submission has been inserted into the database with <code>status: "pending"</code>. Our maintainers review link stability and syllabus alignment before publishing.
+            Your submission has been inserted into the database with <code>status: "pending"</code>. Maintainers review link stability and syllabus alignment before publishing.
           </p>
           <div className="pt-4 flex items-center justify-center gap-3">
             <button
@@ -189,7 +189,7 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
                   onChange={() => setCost('Free')}
                   className="accent-[#8B3A2F]"
                 />
-                <span className="font-medium">Free (Completely free access)</span>
+                <span className="font-medium">Free</span>
               </label>
 
               <label className="flex items-center gap-1.5 cursor-pointer">
@@ -201,7 +201,7 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
                   onChange={() => setCost('Freemium')}
                   className="accent-[#8B3A2F]"
                 />
-                <span className="font-medium">Freemium (Generous free tier)</span>
+                <span className="font-medium">Freemium</span>
               </label>
             </div>
           </div>
@@ -215,7 +215,7 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
               required
               rows={2}
               maxLength={200}
-              placeholder="Concise overview of what this resource provides (formula booklet, Paper 3 specimen, worked video solutions)..."
+              placeholder="Concise overview of what this resource provides"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               className="w-full px-3 py-2 bg-white border border-[#DDD9CF] rounded text-sm text-[#1A1A1A] focus:outline-none focus:ring-1 focus:ring-[#8B3A2F]"
@@ -228,11 +228,11 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
           {/* Suggested by */}
           <div>
             <label className="block text-xs font-bold text-[#333333] mb-1">
-              Your Name / Email / Reddit handle (Optional)
+              Your Name or Email (Optional)
             </label>
             <input
               type="text"
-              placeholder="e.g. u/IB_Student_2025"
+              placeholder="e.g. u/IB_Student_2025 or email@example.com"
               value={suggestedBy}
               onChange={(e) => setSuggestedBy(e.target.value)}
               className="w-full px-3 py-2 bg-white border border-[#DDD9CF] rounded text-sm text-[#1A1A1A] focus:outline-none focus:ring-1 focus:ring-[#8B3A2F]"

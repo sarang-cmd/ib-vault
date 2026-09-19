@@ -20,7 +20,6 @@ export const AboutView: React.FC<AboutViewProps> = ({
   const totalResources = resources.length;
   const categoriesCount = CATEGORY_DEFINITIONS.length;
 
-  // Added in last 30 days
   const thirtyDaysAgo = new Date();
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
   const recentCount = resources.filter(r => {
@@ -50,7 +49,6 @@ export const AboutView: React.FC<AboutViewProps> = ({
 
   return (
     <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8 pb-24">
-      {/* Back button */}
       <div className="mb-6">
         <button
           type="button"
@@ -62,18 +60,15 @@ export const AboutView: React.FC<AboutViewProps> = ({
         </button>
       </div>
 
-      {/* Main Title */}
       <div className="mb-10 border-b border-[#E5E2DA] pb-6">
         <h1 className="font-logo text-3xl sm:text-4xl font-extrabold text-[#8B3A2F] tracking-tight">
           About Vault-IB
         </h1>
         <p className="mt-2 text-base text-[#555555]">
-          A clean, static-first directory of free study resources for International Baccalaureate (IB) Diploma candidates.
+          A clean static directory of free study resources for International Baccalaureate Diploma candidates.
         </p>
       </div>
 
-      {/* Live Database Stats Row: 4 equal-width boxes side by side */}
-      {/* Spec: Big bold number on top, small gray label underneath, thin border, no fill color, no icons */}
       <div className="mb-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           <div className="border border-[#E5E2DA] p-4 text-center">
@@ -114,51 +109,50 @@ export const AboutView: React.FC<AboutViewProps> = ({
         </div>
       </div>
 
-      {/* Prose Sections */}
       <div className="space-y-10 text-[15px] leading-relaxed text-[#333333]">
         <section>
           <h2 className="text-xl font-bold text-[#1A1A1A] mb-3">
             About Vault-IB
           </h2>
           <p className="mb-3">
-            Vault-IB is an open, community-curated index of the most effective free and freemium resources available for the International Baccalaureate Diploma Programme (IBDP).
+            Vault-IB is an open community-curated index of effective free and freemium resources for the International Baccalaureate Diploma Programme.
           </p>
           <p>
-            Rather than relying on closed chat threads, broken Google Drive folders, or Reddit megathreads that decay over time, Vault-IB organizes essential learning assets into an intuitive, lightweight index-card board that loads instantly on any connection and works on all devices.
+            Vault-IB organizes essential learning assets into a lightweight index-card board that loads instantly on any connection and works on all devices. It replaces closed chat threads, broken Google Drive folders, and Reddit megathreads that decay over time.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-[#1A1A1A] mb-3">
-            Why Vault-IB exists
+            Why Vault-IB Exists
           </h2>
           <p className="mb-3">
-            The IB Diploma is demanding, and commercial prep resources can be prohibitively expensive. At the same time, the global IB community has produced thousands of exceptional free materials: worked textbook solutions, interactive graphing simulators, teacher lecture series, paper analysis breakdowns, and exemplar investigations.
+            The IB Diploma is demanding. Commercial prep resources are expensive. The global IB community has produced thousands of free materials including worked textbook solutions, interactive graphing simulators, teacher lecture series, paper analysis breakdowns, and exemplar investigations.
           </p>
           <p>
-            However, these tools are often scattered across ephemeral repositories, changing mirror domains, Discord servers, and student personal blogs. Vault-IB centralizes these links, continuously monitors mirror health, and preserves access so no student has to pay hundreds of dollars for study aids that community volunteers have already made accessible.
+            These tools are scattered across ephemeral repositories, changing mirror domains, Discord servers, and student blogs. Vault-IB centralizes these links, monitors mirror health, and preserves access so no student pays hundreds of dollars for study aids that volunteers have already made free.
           </p>
         </section>
 
         <section>
           <h2 className="text-xl font-bold text-[#1A1A1A] mb-3">
-            What kinds of resources are listed?
+            What Resources Are Listed
           </h2>
           <p className="mb-3">
-            Every resource is categorized and ranked on a 1-to-5 scale based on accuracy, alignment with the current DP syllabus, and community feedback:
+            Every resource is categorized and ranked on a 1-to-5 scale based on accuracy, syllabus alignment, and community feedback:
           </p>
           <ul className="list-disc pl-6 space-y-2 text-[#333333]">
             <li>
-              <strong>Core Subject Hubs & Notes:</strong> Specific coverage for Mathematics AA HL, Physics HL, Chemistry HL, Geography SL, English Language & Literature SL, and German Language & Literature SL.
+              <strong>Core Subject Hubs and Notes:</strong> Mathematics AA HL, Physics HL, Chemistry HL, Geography SL, English Language and Literature SL, German Language and Literature SL.
             </li>
             <li>
-              <strong>Past Papers & Question Banks:</strong> Filterable topic banks (Pestle, SaveMyExams mirrors, official question banks) with mark schemes.
+              <strong>Past Papers and Question Banks:</strong> Filterable topic banks including Pestle, SaveMyExams mirrors, official question banks with mark schemes.
             </li>
             <li>
-              <strong>Internal Assessment, Extended Essay & TOK Exemplars:</strong> Full-mark examiner-reviewed samples, topic guides, and research checklists.
+              <strong>Internal Assessment Extended Essay and TOK Exemplars:</strong> Full-mark examiner-reviewed samples, topic guides, research checklists.
             </li>
             <li>
-              <strong>Calculators & Active Recall:</strong> Spaced-repetition Anki decks, historical grade boundary estimators, and 45-point prediction tools.
+              <strong>Calculators and Active Recall:</strong> Spaced-repetition Anki decks, historical grade boundary estimators, 45-point prediction tools.
             </li>
             <li>
               <strong>Verified Mirrors:</strong> Live-updated textbook and file mirrors across pirateIB, LibGen, Anna's Archive, and academic search engines.
@@ -166,12 +160,6 @@ export const AboutView: React.FC<AboutViewProps> = ({
           </ul>
         </section>
 
-        {/* How to Contribute Section */}
-        {/* Spec: plain bullet list of underlined links:
-            - "Suggest a resource you think is missing"
-            - "Report a bug or broken link"
-            - "Share this with your community"
-            followed by an outlined (not filled) "Back to Top" button */}
         <section className="pt-6 border-t border-[#E5E2DA]">
           <h2 className="text-xl font-bold text-[#1A1A1A] mb-3">
             How to Contribute
@@ -187,7 +175,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
                 onClick={onNavigateSubmit}
                 className="vault-link text-left cursor-pointer"
               >
-                Suggest a resource you think is missing
+                Suggest a missing resource
               </button>
             </li>
             <li>
@@ -205,7 +193,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
                 onClick={handleShare}
                 className="vault-link text-left cursor-pointer"
               >
-                Share this with your community
+                Share with your community
               </button>
             </li>
           </ul>
@@ -221,8 +209,6 @@ export const AboutView: React.FC<AboutViewProps> = ({
           </div>
         </section>
 
-        {/* Activity Log */}
-        {/* Spec: reverse-chronological plain-text list at the bottom, format: YYYY-MM-DD: Added 3 resources to Chemistry HL */}
         <section className="pt-6 border-t border-[#E5E2DA]">
           <h2 className="text-xl font-bold text-[#1A1A1A] mb-3">
             Activity Log

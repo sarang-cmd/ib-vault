@@ -44,7 +44,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
         {/* Header */}
         <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#E5E2DA]">
           <h2 className="text-base font-bold text-[#1A1A1A]">
-            Vault Settings & Preferences
+            Settings
           </h2>
           <button
             type="button"
@@ -61,11 +61,11 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             <div className="flex items-center justify-between">
               <span className="font-bold text-[#1A1A1A] flex items-center gap-1.5">
                 <Bookmark className="w-4 h-4 text-[#1A1A1A]" />
-                <span>My Saved Favorites ({favorites.length})</span>
+                <span>Favorites ({favorites.length})</span>
               </span>
             </div>
             <p className="text-xs text-[#666666]">
-              Favorites are stored client-side in your browser's local storage.
+              Favorites are stored in your browser local storage
             </p>
 
             <div className="pt-2 flex items-center gap-2">
@@ -99,10 +99,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           <div className="p-3 bg-white border border-[#E5E2DA] rounded space-y-2">
             <span className="font-bold text-[#1A1A1A] flex items-center gap-1.5">
               <Shield className="w-4 h-4 text-[#1A1A1A]" />
-              <span>Maintainer & Admin Access</span>
+              <span>Admin Access</span>
             </span>
             <p className="text-xs text-[#666666]">
-              Review pending submissions, inspect broken mirror logs, and manage links.
+              Review pending submissions and manage links
             </p>
             <button
               type="button"
@@ -112,14 +112,14 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               }}
               className="mt-1 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded bg-[#1A1A1A] text-white hover:bg-[#8B3A2F] cursor-pointer"
             >
-              <span>Open Admin Dashboard</span>
+              <span>Open Admin</span>
               <ExternalLink className="w-3 h-3 text-white" />
             </button>
           </div>
 
           {/* About Metadata */}
           <div className="text-center pt-2 text-[11px] text-[#888888]">
-            <p>Vault-IB v3.0 • Built with Vite, React, TypeScript & Tailwind CSS</p>
+            <p>Vault-IB v3.0 • Built with Vite, React, TypeScript and Tailwind CSS</p>
             <p className="mt-0.5">Non-commercial educational archive for the IB DP community</p>
           </div>
         </div>

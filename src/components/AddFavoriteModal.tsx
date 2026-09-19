@@ -46,7 +46,7 @@ export const AddFavoriteModal: React.FC<AddFavoriteModalProps> = ({
           <div className="flex items-center gap-2">
             <Bookmark className="w-5 h-5 text-[#1A1A1A] fill-[#1A1A1A]" />
             <h2 className="text-base font-bold text-[#1A1A1A]">
-              Add Resources to Favorites
+              Add to Favorites
             </h2>
           </div>
           <button
@@ -64,7 +64,7 @@ export const AddFavoriteModal: React.FC<AddFavoriteModalProps> = ({
             <Search className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <input
               type="text"
-              placeholder="Filter resources by name..."
+              placeholder="Filter by name"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full bg-transparent border-0 text-xs text-[#1A1A1A] focus:outline-none"
@@ -143,7 +143,7 @@ export const AddFavoriteModal: React.FC<AddFavoriteModalProps> = ({
         {/* Footer */}
         <div className="p-3 border-t border-[#E5E2DA] bg-[#F4F2ED] flex items-center justify-between text-xs">
           <span className="text-[#666666] font-medium">
-            {favorites.length} saved in favorites
+            {favorites.length} saved
           </span>
           <button
             type="button"

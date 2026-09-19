@@ -116,7 +116,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
         <div className="flex items-center gap-1.5 flex-wrap">
           <span className="text-xs font-semibold text-[#666666] flex items-center gap-1 mr-1">
             <Filter className="w-3.5 h-3.5 text-[#1A1A1A]" />
-            <span>Filter board:</span>
+            <span>Filter board</span>
           </span>
           {subjectGroups.map((group) => (
             <button
@@ -136,7 +136,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
 
         <div className="flex items-center gap-2 text-xs text-[#666666]">
           <span>
-            Showing <strong>{filteredCategories.length + 3}</strong> columns • <strong>{resources.length}</strong> resources
+            Showing <strong>{filteredCategories.length + 3}</strong> columns and <strong>{resources.length}</strong> resources
           </span>
         </div>
       </div>
@@ -216,7 +216,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
       {/* Floating Back to Top Button */}
       <div className="mt-12 pt-6 border-t border-[#E5E2DA] flex items-center justify-between text-xs text-[#777777]">
         <p>
-          Vault-IB is a free, non-commercial directory for IB Diploma Programme candidates.
+          Vault-IB is a free non-commercial directory for IB Diploma Programme candidates
         </p>
         <button
           type="button"
