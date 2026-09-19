@@ -35,10 +35,17 @@ export const TopBar: React.FC<TopBarProps> = ({
           <button
             type="button"
             onClick={onNavigateHome}
-            className="flex items-baseline gap-2 text-left focus:outline-none group cursor-pointer"
+            className="flex items-center gap-2 text-left focus:outline-none group cursor-pointer"
           >
+            <svg className="w-6 h-6 sm:w-7 sm:h-7 flex-shrink-0" viewBox="0 0 64 64" aria-hidden="true">
+              <rect x="2" y="2" width="60" height="60" rx="10" fill="#F4F2ED"/>
+              <path d="M18 46 L18 24 Q18 18 24 18 L40 18 Q46 18 46 24 L46 46 Z" fill="#8B3A2F"/>
+              <path d="M22 46 L22 24 Q22 20 26 20 L38 20 Q42 20 42 24 L42 46 Z" fill="#6B2D23"/>
+              <path d="M28 28 L32 38 L36 28" stroke="#F4F2ED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+              <text x="32" y="48" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="700" fill="#1A1A1A" text-anchor="middle" letter-spacing="1">IB</text>
+            </svg>
             <span className="font-logo font-extrabold text-2xl sm:text-[26px] tracking-tight text-[#8B3A2F] leading-none select-none">
-              VAULT-IB
+              VAULT IB
             </span>
             <span className="hidden md:inline-block text-[12px] font-medium text-[#777777] border-l border-[#DCD7CE] pl-2 leading-none">
               {totalCount} Free DP Resources

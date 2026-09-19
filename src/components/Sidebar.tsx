@@ -61,7 +61,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="p-4 border-b border-[#E5E2DA] flex items-center justify-between bg-[#F4F2ED]">
           <div>
             <span className="font-logo font-black text-xl text-[#8B3A2F] tracking-tight">
-              VAULT-IB
+              VAULT IB
             </span>
             <p className="text-[11px] text-[#777777] font-medium mt-0.5">
               Diploma Programme Resources

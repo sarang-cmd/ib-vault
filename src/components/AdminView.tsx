@@ -5,8 +5,10 @@ import {
   approveSubmission,
   rejectSubmission,
   updateResourceStatus,
-  resetResourcesToDefault
+  resetResourcesToDefault,
+  updateResourceRating
 } from '../lib/supabase';
+import { CATEGORY_DEFINITIONS } from '../data/categories';
 import {
   Lock,
   Check,
@@ -16,7 +18,11 @@ import {
   ExternalLink,
   ShieldCheck,
   Search,
-  Filter
+  Filter,
+  Star,
+  SlidersHorizontal,
+  ChevronUp,
+  ChevronDown as ChevronDownIcon
 } from 'lucide-react';
 import bcrypt from 'bcryptjs';
 
@@ -41,6 +47,14 @@ export const AdminView: React.FC<AdminViewProps> = ({
   const [filterQuery, setFilterQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'approved' | 'broken'>('all');
   const [actionNotice, setActionNotice] = useState<string | null>(null);
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  const [costFilter, setCostFilter] = useState<'all' | 'Free' | 'Freemium'>('all');
+  const [categoryFilter, setCategoryFilter] = useState<string>('all');
+  const [ratingFilter, setRatingFilter] = useState<number | 'all'>('all');
+  const [sortBy, setSortBy] = useState<'name' | 'category' | 'rating' | 'date' | 'status'>('name');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+  const [editingRating, setEditingRating] = useState<string | null>(null);
+  const [tempRating, setTempRating] = useState<number>(3);
 
   // Load pending submissions on mount
   useEffect(() => {
@@ -113,16 +127,58 @@ export const AdminView: React.FC<AdminViewProps> = ({
     setTimeout(() => setActionNotice(null), 3500);
   };
 
+  const handleRatingChange = async (id: string, newRank: number) => {
+    const success = await updateResourceRating(id, newRank);
+    if (success) {
+      await onRefreshResources();
+      showNotice(`Updated rating to ${newRank} stars`);
+    } else {
+      showNotice('Failed to update rating');
+    }
+    setEditingRating(null);
+  };
+
+  // Handle star click for rating
+  const handleStarClick = async (resourceId: string, newRank: number) => {
+    setEditingRating(resourceId);
+    setTempRating(newRank);
+    await handleRatingChange(resourceId, newRank);
+  };
+
   // Filtered list of resources for the "all" tab
-  const filteredAllResources = resources.filter(r => {
-    const matchesSearch =
-      r.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
-      r.category.toLowerCase().includes(filterQuery.toLowerCase()) ||
-      r.description.toLowerCase().includes(filterQuery.toLowerCase());
-    const matchesStatus =
-      statusFilter === 'all' || r.status === statusFilter;
-    return matchesSearch && matchesStatus;
-  });
+  const filteredAllResources = resources
+    .filter(r => {
+      const matchesSearch =
+        r.name.toLowerCase().includes(filterQuery.toLowerCase()) ||
+        r.category.toLowerCase().includes(filterQuery.toLowerCase()) ||
+        r.description.toLowerCase().includes(filterQuery.toLowerCase());
+      const matchesStatus = statusFilter === 'all' || r.status === statusFilter;
+      const matchesCost = costFilter === 'all' || r.cost === costFilter;
+      const matchesCategory = categoryFilter === 'all' || r.category === categoryFilter;
+      const matchesRating = ratingFilter === 'all' || r.rank === ratingFilter;
+      return matchesSearch && matchesStatus && matchesCost && matchesCategory && matchesRating;
+    })
+    .sort((a, b) => {
+      let comparison = 0;
+      switch (sortBy) {
+        case 'name':
+          comparison = a.name.localeCompare(b.name);
+          break;
+        case 'category':
+          comparison = a.category.localeCompare(b.category);
+          break;
+        case 'rating':
+          comparison = a.rank - b.rank;
+          break;
+        case 'date':
+          comparison = (new Date(b.added_date || 0).getTime()) - (new Date(a.added_date || 0).getTime());
+          break;
+        case 'status':
+          comparison = (a.status || '').localeCompare(b.status || '');
+          break;
+      }
+      return sortOrder === 'asc' ? comparison : -comparison;
+    });
 
   if (!isAuthenticated) {
     return (
@@ -142,7 +198,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
           </div>
 
           <h1 className="text-xl font-bold text-[#1A1A1A] tracking-tight">
-            Vault-IB Admin Portal
+            Vault IB Admin Portal
           </h1>
           <p className="text-xs text-[#666666] mt-1 mb-6">
             Enter admin password to manage pending submissions and mirror health.
@@ -360,7 +416,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
               />
             </div>
 
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 flex-wrap">
               <Filter className="w-3.5 h-3.5 text-[#1A1A1A] mr-1" />
               {(['all', 'approved', 'broken'] as const).map((st) => (
                 <button
@@ -376,8 +432,129 @@ export const AdminView: React.FC<AdminViewProps> = ({
                   {st === 'all' ? 'All statuses' : st}
                 </button>
               ))}
+
+              {/* Cost Filter */}
+              <select
+                value={costFilter}
+                onChange={(e) => setCostFilter(e.target.value as 'all' | 'Free' | 'Freemium')}
+                className="px-2 py-1 rounded border border-[#DDD9CF] bg-white text-xs text-[#1A1A1A] cursor-pointer"
+              >
+                <option value="all">All Costs</option>
+                <option value="Free">Free</option>
+                <option value="Freemium">Freemium</option>
+              </select>
+
+              {/* Category Filter */}
+              <select
+                value={categoryFilter}
+                onChange={(e) => setCategoryFilter(e.target.value)}
+                className="px-2 py-1 rounded border border-[#DDD9CF] bg-white text-xs text-[#1A1A1A] cursor-pointer min-w-[180px]"
+              >
+                <option value="all">All Categories</option>
+                {CATEGORY_DEFINITIONS.map((cat) => (
+                  <option key={cat.slug} value={cat.name}>{cat.name}</option>
+                ))}
+              </select>
+
+              {/* Rating Filter */}
+              <select
+                value={ratingFilter}
+                onChange={(e) => setRatingFilter(e.target.value === 'all' ? 'all' : parseInt(e.target.value))}
+                className="px-2 py-1 rounded border border-[#DDD9CF] bg-white text-xs text-[#1A1A1A] cursor-pointer"
+              >
+                <option value="all">All Ratings</option>
+                <option value={5}>5 Stars</option>
+                <option value={4}>4 Stars</option>
+                <option value={3}>3 Stars</option>
+                <option value={2}>2 Stars</option>
+                <option value={1}>1 Star</option>
+              </select>
+
+              {/* Sort Controls */}
+              <div className="flex items-center gap-1 border-l border-[#DDD9CF] pl-2 ml-2">
+                <span className="text-[#666666]">Sort:</span>
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as 'name' | 'category' | 'rating' | 'date' | 'status')}
+                  className="px-2 py-1 rounded border border-[#DDD9CF] bg-white text-xs text-[#1A1A1A] cursor-pointer"
+                >
+                  <option value="name">Name</option>
+                  <option value="category">Category</option>
+                  <option value="rating">Rating</option>
+                  <option value="date">Date Added</option>
+                  <option value="status">Status</option>
+                </select>
+                <button
+                  type="button"
+                  onClick={() => setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')}
+                  className="p-1 rounded border border-[#DDD9CF] bg-white hover:bg-[#F4F2ED] cursor-pointer"
+                  title={sortOrder === 'asc' ? 'Descending' : 'Ascending'}
+                >
+                  {sortOrder === 'asc' ? <ChevronUp className="w-3.5 h-3.5 text-[#1A1A1A]" /> : <ChevronDownIcon className="w-3.5 h-3.5 text-[#1A1A1A]" />}
+                </button>
+              </div>
+
+              {/* Advanced Filters Toggle */}
+              <button
+                type="button"
+                onClick={() => setShowAdvancedFilters(!showAdvancedFilters)}
+                className={`inline-flex items-center gap-1 px-2.5 py-1 rounded text-xs transition-colors cursor-pointer ${
+                  showAdvancedFilters
+                    ? 'bg-[#8B3A2F] text-white'
+                    : 'bg-[#F4F2ED] text-[#1A1A1A] hover:bg-[#EBE8E0]'
+                }`}
+              >
+                <SlidersHorizontal className="w-3.5 h-3.5" />
+                <span>{showAdvancedFilters ? 'Hide Filters' : 'Advanced Filters'}</span>
+                {showAdvancedFilters ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDownIcon className="w-3.5 h-3.5" />}
+              </button>
             </div>
           </div>
+
+          {/* Advanced Filters Panel */}
+          {showAdvancedFilters && (
+            <div className="p-3 bg-[#FAFAF8] border border-[#E5E2DA] rounded space-y-2 text-xs">
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-[#666666] font-medium">Quick Filters:</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStatusFilter('all');
+                    setCostFilter('all');
+                    setCategoryFilter('all');
+                    setRatingFilter('all');
+                  }}
+                  className="px-2 py-0.5 rounded text-xs border border-[#DDD9CF] bg-white text-[#555555] hover:border-[#1A1A1A] cursor-pointer"
+                >
+                  Clear All Filters
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStatusFilter('broken');
+                    setCostFilter('all');
+                    setCategoryFilter('all');
+                    setRatingFilter('all');
+                  }}
+                  className="px-2 py-0.5 rounded text-xs border border-[#C97064]/30 bg-[#C97064]/10 text-[#C97064] cursor-pointer"
+                >
+                  Show Broken Only
+                </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setStatusFilter('approved');
+                    setCostFilter('Free');
+                    setCategoryFilter('all');
+                    setRatingFilter('all');
+                  }}
+                  className="px-2 py-0.5 rounded text-xs border border-[#5FA39A]/30 bg-[#5FA39A]/10 text-[#5FA39A] cursor-pointer"
+                >
+                  Free & Approved
+                </button>
+              </div>
+            </div>
+          )}
 
           {/* Table */}
           <div className="border border-[#E5E2DA] rounded bg-white overflow-x-auto">
@@ -387,6 +564,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                   <th className="p-3 font-semibold">Name & Category</th>
                   <th className="p-3 font-semibold">URL</th>
                   <th className="p-3 font-semibold">Cost</th>
+                  <th className="p-3 font-semibold text-center">Rating</th>
                   <th className="p-3 font-semibold">Status</th>
                   <th className="p-3 font-semibold text-right">Actions</th>
                 </tr>
@@ -412,6 +590,34 @@ export const AdminView: React.FC<AdminViewProps> = ({
                       <span className="px-1.5 py-0.5 rounded bg-[#F4F2ED] text-[#444444]">
                         {r.cost}
                       </span>
+                    </td>
+                    <td className="p-3 text-center">
+                      <div className="flex items-center justify-center gap-0.5">
+                        {Array.from({ length: 5 }).map((_, i) => (
+                          <Star
+                            key={i}
+                            className={`w-4 h-4 cursor-pointer transition-colors ${
+                              editingRating === r.id
+                                ? i < tempRating
+                                  ? 'fill-[#8B3A2F] text-[#8B3A2F]'
+                                  : 'text-[#DDD9CF] hover:text-[#8B3A2F]'
+                                : i < r.rank
+                                ? 'fill-[#8B3A2F] text-[#8B3A2F]'
+                                : 'text-[#DDD9CF] hover:text-[#8B3A2F]'
+                            }`}
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              handleStarClick(r.id, i + 1);
+                            }}
+                            onMouseEnter={() => {
+                              if (!editingRating) setTempRating(i + 1);
+                            }}
+                            onMouseLeave={() => {
+                              if (!editingRating) setTempRating(r.rank);
+                            }}
+                          />
+                        ))}
+                      </div>
                     </td>
                     <td className="p-3">
                       <span

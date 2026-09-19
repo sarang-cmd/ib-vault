@@ -21,6 +21,7 @@ interface ColumnProps {
   isFavoritesColumn?: boolean;
   isNewToolsColumn?: boolean;
   dragHandleProps?: React.HTMLAttributes<HTMLDivElement>;
+  handleResourceClick?: (id: string) => void;
 }
 
 export const Column: React.FC<ColumnProps> = ({
@@ -39,6 +40,7 @@ export const Column: React.FC<ColumnProps> = ({
   isFavoritesColumn = false,
   isNewToolsColumn = false,
   dragHandleProps,
+  handleResourceClick,
 }) => {
   return (
     <div
@@ -71,10 +73,10 @@ export const Column: React.FC<ColumnProps> = ({
         <div className="flex items-center gap-1.5 flex-shrink-0 pl-1">
           {/* Item count badge */}
           <span
-            className="text-[11px] font-bold px-1.5 py-0.2 rounded-full opacity-90"
+            className="text-[11px] font-bold px-1.5 py-0.2 rounded-full"
             style={{
-              backgroundColor: textColor === '#FFFFFF' ? 'rgba(255,255,255,0.22)' : 'rgba(0,0,0,0.12)',
-              color: textColor
+              backgroundColor: 'rgba(26, 26, 26, 0.12)',
+              color: '#1A1A1A'
             }}
           >
             {resources.length}
@@ -98,7 +100,7 @@ export const Column: React.FC<ColumnProps> = ({
       {/* List Body */}
       <div className="flex-1 bg-[#FAFAF8] border-x border-b border-[#E5E2DA] rounded-b-md p-3.5 shadow-2xs min-h-[140px] flex flex-col justify-between" style={{ minWidth: 0 }}>
         {resources.length > 0 ? (
-          <div className="space-y-0.5 divide-y divide-[#F1EFEA]">
+          <div className="space-y-0.5 divide-y divide-[#F1EFEA] pt-1">
             {resources.map((resource) => (
               <ResourceItem
                 key={resource.id}
@@ -107,6 +109,7 @@ export const Column: React.FC<ColumnProps> = ({
                 onToggleFavorite={onToggleFavorite}
                 onSelectResource={onSelectResource}
                 showAddedDate={isNewToolsColumn}
+                onResourceClick={(id) => { handleResourceClick?.(id); onSelectResource(resource); }}
               />
             ))}
           </div>

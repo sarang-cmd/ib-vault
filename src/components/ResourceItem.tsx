@@ -8,6 +8,7 @@ interface ResourceItemProps {
   onToggleFavorite: (id: string) => void;
   onSelectResource: (resource: Resource) => void;
   showAddedDate?: boolean;
+  onResourceClick?: (resourceId: string) => void;
 }
 
 export const ResourceItem: React.FC<ResourceItemProps> = ({
@@ -16,6 +17,7 @@ export const ResourceItem: React.FC<ResourceItemProps> = ({
   onToggleFavorite,
   onSelectResource,
   showAddedDate = false,
+  onResourceClick,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -32,6 +34,7 @@ export const ResourceItem: React.FC<ResourceItemProps> = ({
             href={resource.url}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => onResourceClick?.(resource.id)}
             className="text-[#1A1A1A] underline decoration-1 underline-offset-2 hover:text-[#000000] hover:decoration-[#000000] transition-colors font-medium text-[14.5px] break-words cursor-pointer"
           >
             {resource.name}

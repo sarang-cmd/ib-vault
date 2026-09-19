@@ -70,7 +70,7 @@ export const INITIAL_ACTIVITY_LOG: ActivityEntry[] = [
   {
     id: 'act-12',
     date: '2026-08-10',
-    text: 'Initial Vault-IB database release with 168 curated resources across 18 categories',
+    text: 'Initial Vault IB database release with 168 curated resources across 18 categories',
     category: 'Master Hubs and Repositories'
   }
 ];

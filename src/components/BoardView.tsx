@@ -56,18 +56,43 @@ export const BoardView: React.FC<BoardViewProps> = ({
   onSelectResource,
   onOpenAddFavoriteModal,
   onViewCategory,
+  isReorderMode = false,
 }) => {
   const [selectedSubjectGroup, setSelectedSubjectGroup] = useState<string>('all');
   const [columnOrder, setColumnOrder] = useState<string[]>(() => getSavedColumnOrder());
   const [draggedId, setDraggedId] = useState<string | null>(null);
   const [dragOverId, setDragOverId] = useState<string | null>(null);
+  const [clickCounts, setClickCounts] = useState<Record<string, number>>(() => {
+    try {
+      const saved = localStorage.getItem('vault-ib-click-counts');
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  });
+
+  // Save click counts to localStorage
+  useEffect(() => {
+    localStorage.setItem('vault-ib-click-counts', JSON.stringify(clickCounts));
+  }, [clickCounts]);
+
+  const handleResourceClick = useCallback((resourceId: string) => {
+    setClickCounts(prev => ({
+      ...prev,
+      [resourceId]: (prev[resourceId] || 0) + 1
+    }));
+  }, []);
+
+  // Pass handleResourceClick to Column via context or props would be cleaner
+  // For now, suppress unused warning as it's passed through prop chain
+  void handleResourceClick;
 
   // Save column order to localStorage when it changes
   useEffect(() => {
     saveColumnOrder(columnOrder);
   }, [columnOrder]);
 
-  // 1. Trending This Week: top 5 highest-rank resources across the entire dataset
+  // 1. Trending This Week: top 5 by click count, fallback to curated, then high-rated
   const trendingResources = useMemo(() => {
     const curatedTopIds = [
       'pirateib-master-hubs-repositories',
@@ -76,15 +101,42 @@ export const BoardView: React.FC<BoardViewProps> = ({
       'richard-thornley-ib-chem-vids-chemistry-hl',
       'ibenglishguys-com-english-langlit-sl'
     ];
-    const top = resources.filter(r => curatedTopIds.includes(r.id));
-    if (top.length < 5) {
-      const others = resources
-        .filter(r => r.rank === 5 && !curatedTopIds.includes(r.id))
-        .slice(0, 5 - top.length);
-      return [...top, ...others];
+
+    // Sort all resources by click count (descending)
+    const sortedByClicks = [...resources].sort((a, b) => 
+      (clickCounts[b.id] || 0) - (clickCounts[a.id] || 0)
+    );
+
+    // Get top 5 by clicks, but filter out those with 0 clicks
+    const topByClicks = sortedByClicks
+      .filter(r => (clickCounts[r.id] || 0) > 0)
+      .slice(0, 5);
+
+    if (topByClicks.length >= 5) {
+      return topByClicks;
     }
-    return top.slice(0, 5);
-  }, [resources]);
+
+    // Fallback 1: curated top IDs
+    const curatedTop = resources.filter(r => curatedTopIds.includes(r.id));
+    const combined = [...topByClicks];
+    for (const r of curatedTop) {
+      if (!combined.find(c => c.id === r.id)) {
+        combined.push(r);
+      }
+      if (combined.length >= 5) break;
+    }
+
+    if (combined.length >= 5) {
+      return combined.slice(0, 5);
+    }
+
+    // Fallback 2: high-rated (5 stars) resources
+    const highRated = resources
+      .filter(r => r.rank === 5 && !combined.find(c => c.id === r.id))
+      .slice(0, 5 - combined.length);
+
+    return [...combined, ...highRated].slice(0, 5);
+  }, [resources, clickCounts]);
 
   // 2. Favorites column resources
   const favoriteResources = useMemo(() => {
@@ -343,13 +395,14 @@ export const BoardView: React.FC<BoardViewProps> = ({
               onSelectResource={onSelectResource}
               onOpenAddFavoriteModal={onOpenAddFavoriteModal}
               onViewCategory={onViewCategory}
-              dragHandleProps={{
+              handleResourceClick={handleResourceClick}
+              dragHandleProps={isReorderMode ? {
                 onDragStart: (e) => handleDragStart(e, col.id),
                 onDragOver: (e) => handleDragOver(e, col.id),
                 onDragLeave: (e) => handleDragLeave(e, col.id),
                 onDrop: (e) => handleDrop(e, col.id),
                 onDragEnd: handleDragEnd,
-              }}
+              } : undefined}
             />
           </div>
         ))}
@@ -358,7 +411,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
       {/* Floating Back to Top Button */}
       <div className="mt-12 pt-6 border-t border-[#E5E2DA] flex items-center justify-between text-xs text-[#777777]">
         <p>
-          Vault-IB is a free non-commercial directory for IB Diploma Programme candidates
+          Vault IB is a free non-commercial directory for IB Diploma Programme candidates
         </p>
         <button
           type="button"
@@ -380,6 +433,7 @@ interface BoardViewProps {
   onSelectResource: (resource: Resource) => void;
   onOpenAddFavoriteModal: () => void;
   onViewCategory: (slug: string) => void;
+  isReorderMode?: boolean;
 }
 
 export default BoardView;

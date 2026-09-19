@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Shield, Bookmark, Trash2, Download, ExternalLink } from 'lucide-react';
+import { X, Shield, Bookmark, Trash2, Download, ExternalLink, GripVertical } from 'lucide-react';
 import { Resource } from '../types';
 
 interface SettingsModalProps {
@@ -9,6 +9,8 @@ interface SettingsModalProps {
   resources: Resource[];
   onClearFavorites: () => void;
   onNavigateAdmin: () => void;
+  isReorderMode: boolean;
+  onToggleReorderMode: (enabled: boolean) => void;
 }
 
 export const SettingsModal: React.FC<SettingsModalProps> = ({
@@ -18,6 +20,8 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
   resources,
   onClearFavorites,
   onNavigateAdmin,
+  isReorderMode,
+  onToggleReorderMode,
 }) => {
   if (!isOpen) return null;
 
@@ -117,9 +121,33 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             </button>
           </div>
 
+          {/* Column Reorder Mode */}
+          <div className="p-3 bg-white border border-[#E5E2DA] rounded space-y-2">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-1.5">
+                <GripVertical className="w-4 h-4 text-[#1A1A1A]" />
+                <span className="font-bold text-[#1A1A1A]">Column Reorder Mode</span>
+              </div>
+              <button
+                type="button"
+                onClick={() => onToggleReorderMode(!isReorderMode)}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded transition-colors cursor-pointer ${
+                  isReorderMode
+                    ? 'bg-[#8B3A2F] text-white'
+                    : 'bg-[#F4F2ED] text-[#1A1A1A] hover:bg-[#EBE8E0]'
+                }`}
+              >
+                <span>{isReorderMode ? 'Enabled' : 'Disabled'}</span>
+              </button>
+            </div>
+            <p className="text-xs text-[#666666]">
+              When enabled, drag the grip icon on column headers to reorder columns. Changes are saved automatically.
+            </p>
+          </div>
+
           {/* About Metadata */}
           <div className="text-center pt-2 text-[11px] text-[#888888]">
-            <p>Vault-IB v3.0 • Built with Vite, React, TypeScript and Tailwind CSS</p>
+            <p>Vault IB v3.0 • Built with Vite, React, TypeScript and Tailwind CSS</p>
             <p className="mt-0.5">Non-commercial educational archive for the IB DP community</p>
           </div>
         </div>

@@ -238,6 +238,26 @@ export async function updateResourceStatus(id: string, status: ResourceStatus): 
   return false;
 }
 
+export async function updateResourceRating(id: string, rank: number): Promise<boolean> {
+  if (isSupabaseConfigured && supabase) {
+    const { error } = await supabase.from('resources').update({ rank }).eq('id', id);
+    if (error) throw error;
+    return true;
+  }
+  const all = await getStoredResources();
+  const idx = all.findIndex(r => r.id === id);
+  if (idx >= 0) {
+    all[idx].rank = rank;
+    try {
+      localStorage.setItem(LOCAL_STORAGE_RESOURCES_KEY, JSON.stringify(all));
+    } catch (e) {
+      console.error('Error saving resources', e);
+    }
+    return true;
+  }
+  return false;
+}
+
 export async function resetResourcesToDefault(): Promise<Resource[]> {
   if (isSupabaseConfigured && supabase) {
     await supabase.from('resources').delete().neq('id', '00000000-0000-0000-0000-000000000000');

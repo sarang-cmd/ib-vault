@@ -15,6 +15,8 @@ import { ReportModal } from './components/ReportModal';
 import { AddFavoriteModal } from './components/AddFavoriteModal';
 import { exportCategoryToPdf } from './lib/pdfExport';
 import { Printer } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const FAVORITES_STORAGE_KEY = 'ibvault_favorites';
 
@@ -67,6 +69,7 @@ export function App() {
   const [isAddFavoriteModalOpen, setIsAddFavoriteModalOpen] = useState(false);
   const [selectedResource, setSelectedResource] = useState<Resource | null>(null);
   const [reportTargetResource, setReportTargetResource] = useState<Resource | null>(null);
+  const [isReorderMode, setIsReorderMode] = useState(false);
 
   // Sync favorites with localStorage
   const handleToggleFavorite = useCallback((id: string) => {
@@ -166,17 +169,19 @@ export function App() {
       );
       exportCategoryToPdf(catResources[0]?.category || 'Category', catResources);
     } else {
-      exportCategoryToPdf('Full Vault-IB Directory', resources);
+      exportCategoryToPdf('Full Vault IB Directory', resources);
     }
   };
 
   return (
     <div className="min-h-screen flex flex-col bg-[#F4F2ED] text-[#1A1A1A]">
+      <Analytics />
+      <SpeedInsights />
       {isLoading && (
         <div className="fixed inset-0 z-50 bg-[#F4F2ED] flex items-center justify-center">
           <div className="text-center">
             <div className="w-10 h-10 border-3 border-[#8B3A2F] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-            <p className="text-sm text-[#666666]">Loading Vault-IB...</p>
+            <p className="text-sm text-[#666666]">Loading Vault IB...</p>
           </div>
         </div>
       )}
@@ -200,6 +205,7 @@ export function App() {
             onSelectResource={(res) => setSelectedResource(res)}
             onOpenAddFavoriteModal={() => setIsAddFavoriteModalOpen(true)}
             onViewCategory={(slug) => navigate({ view: 'category', slug })}
+            isReorderMode={isReorderMode}
           />
         )}
 
@@ -280,6 +286,8 @@ export function App() {
         resources={resources}
         onClearFavorites={handleClearFavorites}
         onNavigateAdmin={() => navigate({ view: 'admin' })}
+        isReorderMode={isReorderMode}
+        onToggleReorderMode={setIsReorderMode}
       />
 
       {/* Resource Detail Modal */}

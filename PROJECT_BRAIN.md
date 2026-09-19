@@ -101,7 +101,6 @@ created_at      TIMESTAMPTZ DEFAULT now()
 
 ### Initial Data
 - **168 resources** seeded via migration
-- **Randomized September 2025 dates** (2025-09-01 to 2025-09-30)
 - **7 marked `is_new: true`** (last week of September)
 - **2 demo pending submissions** for admin testing
 - **Kognity** (formerly Cognity) → `https://app.kognity.com`
@@ -209,7 +208,7 @@ IB-Vault_Public/
 │   │   ├── resources.ts         # 168 resources (SOURCE OF TRUTH)
 │   │   ├── resources.json       # Mirror for migration generation
 │   │   ├── categories.ts        # 33 category definitions
-│   │   └── activityLog.ts       # September 2025 activity entries
+│   │   └── activityLog.ts       # September 2026 activity entries
 │   ├── lib/
 │   │   ├── supabase.ts          # Hybrid data layer (Supabase + localStorage)
 │   │   ├── supabaseClient.ts    # Supabase client init
@@ -305,7 +304,7 @@ IB-Vault_Public/
 
 ## 🧠 Session History (Key Decisions)
 
-### 2025-09-19: Production Readiness
+### 2026-09-19: Production Readiness
 1. **Hybrid data layer** implemented (Supabase + localStorage fallback)
 2. **Vercel deployment** configured with SPA routing
 3. **Environment variables** identified as "Config" not "Secret"
@@ -314,9 +313,7 @@ IB-Vault_Public/
 6. **RLS policies** for public read/insert/update
 7. **Approve/reject fix**: Changed to UPDATE + added UPDATE policy
 8. **Kognity rename** (Cognity → Kognity, URL fixed)
-9. **September 2025 dates** randomized across resources
 10. **Favicon** created matching brand palette
-11. **Activity log** updated to September 2025
 12. **Pushed to GitHub** → Vercel auto-deploy
 
 ### Files Changed This Session
