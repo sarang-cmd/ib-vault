@@ -57,7 +57,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
           onClick={onNavigateHome}
           className="inline-flex items-center gap-1.5 text-xs font-medium text-[#444444] hover:text-[#1A1A1A] underline cursor-pointer"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
+          <ArrowLeft className="w-3.5 h-3.5 text-[#1A1A1A]" />
           <span>Back to Board</span>
         </button>
       </div>

@@ -76,7 +76,7 @@ export const Column: React.FC<ColumnProps> = ({
               title={`View all ${title} resources in full page`}
               aria-label={`Open ${title} category page`}
             >
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#1A1A1A]" />
             </button>
           )}
         </div>
@@ -107,7 +107,7 @@ export const Column: React.FC<ColumnProps> = ({
                   onClick={onOpenAddFavoriteModal}
                   className="inline-flex items-center gap-1 text-xs text-[#1A1A1A] underline hover:text-[#B85C8A] font-medium cursor-pointer"
                 >
-                  <Plus className="w-3 h-3" />
+<Plus className="w-3 h-3 text-[#1A1A1A]" />
                   <span>+ Add to favorites</span>
                 </button>
               </div>

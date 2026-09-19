@@ -51,7 +51,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
             onClick={onClose}
             className="p-1 rounded text-[#777777] hover:text-[#1A1A1A] cursor-pointer"
           >
-            <X className="w-4 h-4" />
+            <X className="w-4 h-4 text-[#1A1A1A]" />
           </button>
         </div>
 
@@ -60,7 +60,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           <div className="p-3 bg-white border border-[#E5E2DA] rounded space-y-2">
             <div className="flex items-center justify-between">
               <span className="font-bold text-[#1A1A1A] flex items-center gap-1.5">
-                <Bookmark className="w-4 h-4 text-[#B85C8A]" />
+                <Bookmark className="w-4 h-4 text-[#1A1A1A]" />
                 <span>My Saved Favorites ({favorites.length})</span>
               </span>
             </div>
@@ -75,7 +75,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 disabled={favorites.length === 0}
                 className="inline-flex items-center gap-1 px-2.5 py-1 text-xs border border-[#DDD9CF] rounded bg-[#FAF9F5] text-[#333333] hover:text-[#1A1A1A] disabled:opacity-40 cursor-pointer"
               >
-                <Download className="w-3.5 h-3.5" />
+                <Download className="w-3.5 h-3.5 text-[#1A1A1A]" />
                 <span>Export JSON</span>
               </button>
 
@@ -89,7 +89,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 disabled={favorites.length === 0}
                 className="inline-flex items-center gap-1 px-2.5 py-1 text-xs border border-[#C97064]/30 rounded text-[#C97064] hover:bg-[#C97064]/10 disabled:opacity-40 cursor-pointer"
               >
-                <Trash2 className="w-3.5 h-3.5" />
+                <Trash2 className="w-3.5 h-3.5 text-[#1A1A1A]" />
                 <span>Clear Favorites</span>
               </button>
             </div>
@@ -98,7 +98,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           {/* Admin & Maintainer tools */}
           <div className="p-3 bg-white border border-[#E5E2DA] rounded space-y-2">
             <span className="font-bold text-[#1A1A1A] flex items-center gap-1.5">
-              <Shield className="w-4 h-4 text-[#6E7A99]" />
+              <Shield className="w-4 h-4 text-[#1A1A1A]" />
               <span>Maintainer & Admin Access</span>
             </span>
             <p className="text-xs text-[#666666]">
@@ -113,7 +113,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               className="mt-1 inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded bg-[#1A1A1A] text-white hover:bg-[#8B3A2F] cursor-pointer"
             >
               <span>Open Admin Dashboard</span>
-              <ExternalLink className="w-3 h-3" />
+              <ExternalLink className="w-3 h-3 text-white" />
             </button>
           </div>
 

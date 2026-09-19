@@ -43,7 +43,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({
       <div className="relative z-10 w-full max-w-md bg-[#FAFAF8] border border-[#E5E2DA] rounded-md shadow-xl p-5 text-[#1A1A1A]">
         <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#E5E2DA]">
           <div className="flex items-center gap-2">
-            <AlertTriangle className="w-4 h-4 text-[#C97064]" />
+            <AlertTriangle className="w-4 h-4 text-[#1A1A1A]" />
             <h2 className="text-base font-bold text-[#1A1A1A]">
               Report Broken Link / Mirror
             </h2>
@@ -53,13 +53,13 @@ export const ReportModal: React.FC<ReportModalProps> = ({
             onClick={onClose}
             className="p-1 rounded text-[#777777] hover:text-[#1A1A1A] cursor-pointer"
           >
-            <X className="w-4 h-4" />
+            <X className="w-4 h-4 text-[#1A1A1A]" />
           </button>
         </div>
 
         {isSuccess ? (
           <div className="py-6 text-center space-y-3">
-            <CheckCircle2 className="w-10 h-10 text-[#5FA39A] mx-auto" />
+            <CheckCircle2 className="w-10 h-10 text-[#1A1A1A] mx-auto" />
             <p className="text-sm font-semibold text-[#1A1A1A]">
               Thank you for reporting.
             </p>
@@ -124,7 +124,7 @@ export const ReportModal: React.FC<ReportModalProps> = ({
                 type="submit"
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded bg-[#C97064] text-white hover:bg-[#b05c51] cursor-pointer"
               >
-                <Send className="w-3 h-3" />
+                <Send className="w-3 h-3 text-white" />
                 <span>Submit Report</span>
               </button>
             </div>

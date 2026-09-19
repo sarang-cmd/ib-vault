@@ -60,7 +60,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
             className="p-1 rounded opacity-80 hover:opacity-100 transition-opacity cursor-pointer"
             aria-label="Close"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5 text-[#1A1A1A]" />
           </button>
         </div>
 
@@ -117,12 +117,12 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
               <div className="flex items-center gap-1 font-semibold text-[#1A1A1A] mt-0.5">
                 {resource.status === 'broken' ? (
                   <>
-                    <AlertTriangle className="w-3.5 h-3.5 text-[#C97064]" />
+                    <AlertTriangle className="w-3.5 h-3.5 text-[#1A1A1A]" />
                     <span className="text-[#C97064]">Mirror Issues</span>
                   </>
                 ) : (
                   <>
-                    <ShieldCheck className="w-3.5 h-3.5 text-[#5FA39A]" />
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#1A1A1A]" />
                     <span>Verified Link</span>
                   </>
                 )}
@@ -132,7 +132,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
             <div className="p-2.5 rounded border border-[#E5E2DA] bg-[#F4F2ED]">
               <span className="text-[11px] text-[#777777] block">Added Date</span>
               <div className="flex items-center gap-1 font-semibold text-[#1A1A1A] mt-0.5">
-                <Calendar className="w-3.5 h-3.5 text-[#777777]" />
+                <Calendar className="w-3.5 h-3.5 text-[#1A1A1A]" />
                 <span>{resource.added_date || 'Standard catalog'}</span>
               </div>
             </div>
@@ -147,7 +147,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
               className="w-full sm:flex-1 inline-flex items-center justify-center gap-2 py-2 px-4 rounded bg-[#1A1A1A] text-white hover:bg-[#8B3A2F] font-semibold text-xs transition-colors cursor-pointer"
             >
               <span>Open Resource</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <ExternalLink className="w-3.5 h-3.5 text-white" />
             </a>
 
             <button
@@ -159,7 +159,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
                   : 'border-[#DDD9CF] bg-white text-[#333333] hover:text-[#B85C8A] hover:border-[#B85C8A]'
               }`}
             >
-              <Bookmark className={`w-3.5 h-3.5 ${isFavorite ? 'fill-[#B85C8A]' : ''}`} />
+              <Bookmark className={`w-3.5 h-3.5 ${isFavorite ? 'fill-[#1A1A1A]' : ''} text-[#1A1A1A]`} />
               <span>{isFavorite ? 'Saved in Favorites' : 'Add to Favorites'}</span>
             </button>
           </div>
@@ -175,7 +175,7 @@ export const ResourceDetailModal: React.FC<ResourceDetailModalProps> = ({
               className="underline hover:text-[#1A1A1A] inline-flex items-center gap-0.5 cursor-pointer"
             >
               <span>See more in {resource.category}</span>
-              <ArrowRight className="w-3 h-3" />
+              <ArrowRight className="w-3 h-3 text-[#1A1A1A]" />
             </button>
 
             <button

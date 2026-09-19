@@ -54,7 +54,7 @@ export const TopBar: React.FC<TopBarProps> = ({
             onClick={onOpenSubmit}
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded border border-[#D5D0C5] text-[#333333] hover:text-[#1A1A1A] hover:border-[#1A1A1A] bg-white transition-colors cursor-pointer"
           >
-            <PlusCircle className="w-3.5 h-3.5 text-[#8B3A2F]" />
+            <PlusCircle className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <span>Suggest Link</span>
           </button>
 
@@ -65,7 +65,7 @@ export const TopBar: React.FC<TopBarProps> = ({
             className="flex items-center gap-2 px-3 py-1.5 text-sm text-[#555555] bg-white border border-[#E5E2DA] rounded hover:border-[#8B3A2F] hover:text-[#1A1A1A] transition-colors shadow-2xs focus:outline-none focus:ring-1 focus:ring-[#8B3A2F] cursor-pointer"
             aria-label="Search resources"
           >
-            <Search className="w-4 h-4 text-[#666666]" />
+            <Search className="w-4 h-4 text-[#1A1A1A]" />
             <span className="hidden sm:inline text-xs font-medium text-[#777777]">
               Search vault...
             </span>
@@ -81,7 +81,7 @@ export const TopBar: React.FC<TopBarProps> = ({
             className="p-2 rounded text-[#444444] hover:text-[#1A1A1A] hover:bg-[#EBE8E0] transition-colors focus:outline-none focus:ring-1 focus:ring-[#8B3A2F] cursor-pointer"
             aria-label="Settings"
           >
-            <Settings className="w-4.5 h-4.5" />
+            <Settings className="w-4.5 h-4.5 text-[#1A1A1A]" />
           </button>
         </div>
       </div>

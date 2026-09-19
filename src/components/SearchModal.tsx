@@ -69,7 +69,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
       <div className="relative z-10 w-full max-w-2xl bg-[#FAFAF8] border border-[#E5E2DA] rounded-lg shadow-xl overflow-hidden flex flex-col max-h-[80vh]">
         {/* Search Input Bar */}
         <div className="p-3 sm:p-4 border-b border-[#E5E2DA] bg-white flex items-center gap-3">
-          <Search className="w-5 h-5 text-[#888888] flex-shrink-0" />
+          <Search className="w-5 h-5 text-[#1A1A1A] flex-shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -84,7 +84,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
               onClick={() => setQuery('')}
               className="p-1 rounded text-[#777777] hover:text-[#1A1A1A] cursor-pointer"
             >
-              <X className="w-4 h-4" />
+              <X className="w-4 h-4 text-[#1A1A1A]" />
             </button>
           )}
           <kbd className="hidden sm:inline-block text-[10px] uppercase font-sans font-medium px-1.5 py-0.5 bg-[#F4F2ED] text-[#777777] border border-[#DDD9CF] rounded">
@@ -152,7 +152,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                         className="text-[11px] text-[#666666] hover:text-[#1A1A1A] hover:underline flex items-center gap-0.5 cursor-pointer"
                       >
                         <span>{resource.category}</span>
-                        <ArrowRight className="w-2.5 h-2.5 opacity-60" />
+                        <ArrowRight className="w-2.5 h-2.5 opacity-60 text-[#1A1A1A]" />
                       </button>
 
                       <span
@@ -180,7 +180,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       }`}
                       title={isFav ? 'Remove favorite' : 'Add to favorites'}
                     >
-                      <Bookmark className={`w-4 h-4 ${isFav ? 'fill-[#B85C8A]' : ''}`} />
+                      <Bookmark className={`w-4 h-4 ${isFav ? 'fill-[#1A1A1A]' : ''} text-[#1A1A1A]`} />
                     </button>
 
                     <button
@@ -201,7 +201,7 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                       className="p-1 text-[#1A1A1A] hover:text-[#8B3A2F] cursor-pointer"
                       title="Open website"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-4 h-4 text-[#1A1A1A]" />
                     </a>
                   </div>
                 </div>

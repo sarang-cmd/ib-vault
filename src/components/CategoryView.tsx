@@ -78,7 +78,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
           onClick={onNavigateHome}
           className="inline-flex items-center gap-1.5 text-xs font-medium text-[#444444] hover:text-[#1A1A1A] underline cursor-pointer"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
+          <ArrowLeft className="w-3.5 h-3.5 text-[#1A1A1A]" />
           <span>Back to Board</span>
         </button>
 
@@ -88,7 +88,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
             onClick={handleCopyLink}
             className="inline-flex items-center gap-1 px-2.5 py-1 text-xs border border-[#DDD9CF] rounded bg-white text-[#333333] hover:text-[#1A1A1A] hover:border-[#1A1A1A] transition-colors cursor-pointer"
           >
-            {copiedLink ? <Check className="w-3.5 h-3.5 text-[#5FA39A]" /> : <Share2 className="w-3.5 h-3.5" />}
+            {copiedLink ? <Check className="w-3.5 h-3.5 text-[#1A1A1A]" /> : <Share2 className="w-3.5 h-3.5 text-[#1A1A1A]" />}
             <span>{copiedLink ? 'Link copied' : 'Share category'}</span>
           </button>
 
@@ -98,7 +98,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
             className="inline-flex items-center gap-1 px-2.5 py-1 text-xs border border-[#DDD9CF] rounded bg-white text-[#333333] hover:text-[#1A1A1A] hover:border-[#1A1A1A] transition-colors cursor-pointer"
             title="Export printable PDF"
           >
-            <Printer className="w-3.5 h-3.5 text-[#8B3A2F]" />
+            <Printer className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <span>Export PDF</span>
           </button>
         </div>
@@ -130,7 +130,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
         {/* Filter bar inside category card */}
         <div className="p-3 bg-white flex flex-wrap items-center justify-between gap-3 text-xs">
           <div className="flex items-center gap-2 flex-1 min-w-[200px]">
-            <Search className="w-3.5 h-3.5 text-[#777777]" />
+            <Search className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <input
               type="text"
               placeholder={`Filter in ${meta.name}...`}
@@ -200,7 +200,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
 
                       {resource.status === 'broken' && (
                         <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#C97064]">
-                          <AlertTriangle className="w-3 h-3" />
+                          <AlertTriangle className="w-3 h-3 text-[#1A1A1A]" />
                           <span>Mirror issues reported</span>
                         </span>
                       )}
@@ -229,7 +229,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                       }`}
                       title={isFav ? 'Remove favorite' : 'Add to favorites'}
                     >
-                      <Bookmark className={`w-4 h-4 ${isFav ? 'fill-[#B85C8A]' : ''}`} />
+                      <Bookmark className={`w-4 h-4 ${isFav ? 'fill-[#1A1A1A]' : ''} text-[#1A1A1A]`} />
                     </button>
 
                     <button
@@ -238,7 +238,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                       className="p-1.5 text-[#777777] hover:text-[#1A1A1A] hover:bg-[#EBE8E0] rounded transition-colors cursor-pointer"
                       title="Inspect resource info"
                     >
-                      <Info className="w-4 h-4" />
+                      <Info className="w-4 h-4 text-[#1A1A1A]" />
                     </button>
 
                     <a
@@ -248,7 +248,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                       className="p-1.5 text-[#1A1A1A] hover:text-[#8B3A2F] hover:bg-[#EBE8E0] rounded transition-colors cursor-pointer"
                       title="Open website"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <ExternalLink className="w-4 h-4 text-[#1A1A1A]" />
                     </a>
                   </div>
                 </div>

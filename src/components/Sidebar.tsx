@@ -73,7 +73,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             className="p-1.5 rounded text-[#555555] hover:text-[#1A1A1A] hover:bg-[#EBE8E0] transition-colors cursor-pointer"
             aria-label="Close menu"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5 text-[#1A1A1A]" />
           </button>
         </div>
 
@@ -89,7 +89,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               }}
               className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded hover:bg-[#EBE8E0] text-[#1A1A1A] transition-colors cursor-pointer text-left"
             >
-              <Home className="w-4 h-4 text-[#8B3A2F]" />
+              <Home className="w-4 h-4 text-[#1A1A1A]" />
               <span>Home (Board View)</span>
             </button>
 
@@ -102,7 +102,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               className="w-full flex items-center justify-between px-3 py-2 text-sm font-medium rounded hover:bg-[#EBE8E0] text-[#1A1A1A] transition-colors cursor-pointer text-left"
             >
               <div className="flex items-center gap-3">
-                <Bookmark className="w-4 h-4 text-[#B85C8A]" />
+                <Bookmark className="w-4 h-4 text-[#1A1A1A]" />
                 <span>Favorites</span>
               </div>
               <span className="text-xs bg-[#B85C8A]/15 text-[#B85C8A] font-semibold px-2 py-0.5 rounded-full">
@@ -118,7 +118,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               }}
               className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded hover:bg-[#EBE8E0] text-[#1A1A1A] transition-colors cursor-pointer text-left"
             >
-              <Flame className="w-4 h-4 text-[#C97064]" />
+              <Flame className="w-4 h-4 text-[#1A1A1A]" />
               <span>Trending This Week</span>
             </button>
 
@@ -130,7 +130,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               }}
               className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded hover:bg-[#EBE8E0] text-[#1A1A1A] transition-colors cursor-pointer text-left"
             >
-              <Sparkles className="w-4 h-4 text-[#6E7A99]" />
+              <Sparkles className="w-4 h-4 text-[#1A1A1A]" />
               <span>New Tools</span>
             </button>
 
@@ -142,7 +142,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               }}
               className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded hover:bg-[#EBE8E0] text-[#1A1A1A] transition-colors cursor-pointer text-left"
             >
-              <Clock className="w-4 h-4 text-[#5FA39A]" />
+              <Clock className="w-4 h-4 text-[#1A1A1A]" />
               <span>Activity Log & Stats</span>
             </button>
           </div>
@@ -192,7 +192,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             }}
             className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded hover:bg-[#E5E2DA] text-[#333333] hover:text-[#1A1A1A] text-left cursor-pointer"
           >
-            <Send className="w-3.5 h-3.5 text-[#8B3A2F]" />
+            <Send className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <span>Suggest a Resource</span>
           </button>
 
@@ -204,7 +204,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             }}
             className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded hover:bg-[#E5E2DA] text-[#333333] hover:text-[#1A1A1A] text-left cursor-pointer"
           >
-            <Info className="w-3.5 h-3.5 text-[#555555]" />
+            <Info className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <span>About IB Vault</span>
           </button>
 
@@ -216,7 +216,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             }}
             className="w-full flex items-center gap-2 px-2.5 py-1.5 rounded hover:bg-[#E5E2DA] text-[#666666] hover:text-[#1A1A1A] text-left cursor-pointer"
           >
-            <Shield className="w-3.5 h-3.5 text-[#6E7A99]" />
+            <Shield className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <span>Admin Portal</span>
           </button>
 
@@ -227,7 +227,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
             className="w-full flex items-center justify-between px-2.5 py-1.5 rounded hover:bg-[#E5E2DA] text-[#666666] hover:text-[#1A1A1A] text-left"
           >
             <span>r/IBO Community</span>
-            <ExternalLink className="w-3 h-3 opacity-60" />
+            <ExternalLink className="w-3 h-3 text-[#1A1A1A]" />
           </a>
         </div>
 

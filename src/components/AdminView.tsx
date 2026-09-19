@@ -132,7 +132,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
           onClick={onNavigateHome}
           className="inline-flex items-center gap-1.5 text-xs text-[#555555] hover:text-[#1A1A1A] underline mb-8 cursor-pointer"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
+          <ArrowLeft className="w-3.5 h-3.5 text-[#1A1A1A]" />
           <span>Back to Board</span>
         </button>
 
@@ -189,7 +189,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
             className="p-1.5 rounded hover:bg-[#EBE8E0] text-[#555555] hover:text-[#1A1A1A] cursor-pointer"
             title="Back to board"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4 text-[#1A1A1A]" />
           </button>
           <div>
             <div className="flex items-center gap-2">
@@ -197,7 +197,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                 Vault Maintainer Dashboard
               </h1>
               <span className="inline-flex items-center gap-1 text-[11px] font-bold px-2 py-0.5 bg-[#8FAE72]/20 text-[#3e6820] rounded-full">
-                <ShieldCheck className="w-3 h-3" />
+                <ShieldCheck className="w-3 h-3 text-[#1A1A1A]" />
                 <span>Authenticated</span>
               </span>
             </div>
@@ -214,7 +214,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
             className="inline-flex items-center gap-1 px-3 py-1.5 text-xs rounded border border-[#DDD9CF] bg-white text-[#444444] hover:text-[#1A1A1A] hover:border-[#1A1A1A] cursor-pointer"
             title="Reset vault to initial 168 entries"
           >
-            <RotateCcw className="w-3.5 h-3.5 text-[#8B3A2F]" />
+            <RotateCcw className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <span>Reset Dataset</span>
           </button>
 
@@ -305,7 +305,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                         className="inline-flex items-center gap-1 underline text-[#1A1A1A] hover:text-[#8B3A2F]"
                       >
                         <span>{item.url}</span>
-                        <ExternalLink className="w-3 h-3" />
+                        <ExternalLink className="w-3 h-3 text-[#1A1A1A]" />
                       </a>
                       {item.suggested_by && (
                         <span>By: <strong>{item.suggested_by}</strong></span>
@@ -320,7 +320,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                       onClick={() => handleReject(item.id)}
                       className="inline-flex items-center gap-1 px-3 py-1.5 text-xs rounded border border-[#C97064] text-[#C97064] hover:bg-[#C97064] hover:text-white transition-colors cursor-pointer"
                     >
-                      <X className="w-3.5 h-3.5" />
+                      <X className="w-3.5 h-3.5 text-[#1A1A1A]" />
                       <span>Reject</span>
                     </button>
 
@@ -329,7 +329,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                       onClick={() => handleApprove(item.id)}
                       className="inline-flex items-center gap-1 px-3 py-1.5 text-xs rounded bg-[#5FA39A] text-white hover:bg-[#48877f] font-semibold transition-colors cursor-pointer"
                     >
-                      <Check className="w-3.5 h-3.5" />
+                      <Check className="w-3.5 h-3.5 text-[#1A1A1A]" />
                       <span>Approve</span>
                     </button>
                   </div>
@@ -350,7 +350,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
           {/* Filter Bar */}
           <div className="p-3 bg-[#FAFAF8] border border-[#E5E2DA] rounded flex flex-wrap items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-2 flex-1 min-w-[220px]">
-              <Search className="w-3.5 h-3.5 text-[#777777]" />
+              <Search className="w-3.5 h-3.5 text-[#1A1A1A]" />
               <input
                 type="text"
                 placeholder="Search across all resources..."
@@ -361,7 +361,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
             </div>
 
             <div className="flex items-center gap-1">
-              <Filter className="w-3.5 h-3.5 text-[#777777] mr-1" />
+              <Filter className="w-3.5 h-3.5 text-[#1A1A1A] mr-1" />
               {(['all', 'approved', 'broken'] as const).map((st) => (
                 <button
                   key={st}

@@ -44,7 +44,7 @@ export const AddFavoriteModal: React.FC<AddFavoriteModalProps> = ({
         {/* Header */}
         <div className="p-4 border-b border-[#E5E2DA] flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Bookmark className="w-5 h-5 text-[#B85C8A] fill-[#B85C8A]" />
+            <Bookmark className="w-5 h-5 text-[#1A1A1A] fill-[#1A1A1A]" />
             <h2 className="text-base font-bold text-[#1A1A1A]">
               Add Resources to Favorites
             </h2>
@@ -54,14 +54,14 @@ export const AddFavoriteModal: React.FC<AddFavoriteModalProps> = ({
             onClick={onClose}
             className="p-1 rounded text-[#777777] hover:text-[#1A1A1A] cursor-pointer"
           >
-            <X className="w-4 h-4" />
+            <X className="w-4 h-4 text-[#1A1A1A]" />
           </button>
         </div>
 
         {/* Filters */}
         <div className="p-3 bg-white border-b border-[#E5E2DA] space-y-2">
           <div className="flex items-center gap-2 px-2.5 py-1.5 border border-[#DDD9CF] rounded bg-[#FAF9F5]">
-            <Search className="w-3.5 h-3.5 text-[#777777]" />
+            <Search className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <input
               type="text"
               placeholder="Filter resources by name..."
@@ -123,17 +123,17 @@ export const AddFavoriteModal: React.FC<AddFavoriteModalProps> = ({
                       : 'border border-[#DDD9CF] bg-white text-[#333333] hover:border-[#B85C8A] hover:text-[#B85C8A]'
                   }`}
                 >
-                  {isFav ? (
-                    <>
-                      <Check className="w-3 h-3" />
-                      <span>Added</span>
-                    </>
-                  ) : (
-                    <>
-                      <Plus className="w-3 h-3" />
-                      <span>Add</span>
-                    </>
-                  )}
+{isFav ? (
+                      <>
+                        <Check className="w-3 h-3 text-white" />
+                        <span>Added</span>
+                      </>
+                    ) : (
+                      <>
+                        <Plus className="w-3 h-3 text-[#1A1A1A]" />
+                        <span>Add</span>
+                      </>
+                    )}
                 </button>
               </div>
             );

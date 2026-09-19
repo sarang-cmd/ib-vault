@@ -87,14 +87,14 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
             onClick={onClose}
             className="p-1 rounded text-[#777777] hover:text-[#1A1A1A] hover:bg-[#EBE8E0] cursor-pointer"
           >
-            <X className="w-5 h-5" />
+            <X className="w-5 h-5 text-[#1A1A1A]" />
           </button>
         )}
       </div>
 
       {isSuccess ? (
         <div className="py-8 text-center space-y-3">
-          <CheckCircle2 className="w-12 h-12 text-[#5FA39A] mx-auto" />
+          <CheckCircle2 className="w-12 h-12 text-[#1A1A1A] mx-auto" />
           <h3 className="text-lg font-bold text-[#1A1A1A]">
             Resource Queued for Review
           </h3>
@@ -254,7 +254,7 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
               disabled={isSubmitting}
               className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded bg-[#1A1A1A] text-white hover:bg-[#8B3A2F] transition-colors cursor-pointer disabled:opacity-50"
             >
-              <Send className="w-3.5 h-3.5" />
+              <Send className="w-3.5 h-3.5 text-white" />
               <span>{isSubmitting ? 'Submitting...' : 'Submit Resource'}</span>
             </button>
           </div>
@@ -272,7 +272,7 @@ export const SubmitModal: React.FC<SubmitModalProps> = ({
             onClick={onNavigateHome}
             className="inline-flex items-center gap-1.5 text-xs font-medium text-[#444444] hover:text-[#1A1A1A] underline cursor-pointer"
           >
-            <ArrowLeft className="w-3.5 h-3.5" />
+            <ArrowLeft className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <span>Back to Board</span>
           </button>
         </div>

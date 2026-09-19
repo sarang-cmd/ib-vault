@@ -115,7 +115,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#E5E2DA]">
         <div className="flex items-center gap-1.5 flex-wrap">
           <span className="text-xs font-semibold text-[#666666] flex items-center gap-1 mr-1">
-            <Filter className="w-3.5 h-3.5" />
+            <Filter className="w-3.5 h-3.5 text-[#1A1A1A]" />
             <span>Filter board:</span>
           </span>
           {subjectGroups.map((group) => (
@@ -223,7 +223,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
           onClick={scrollToTop}
           className="inline-flex items-center gap-1.5 px-3 py-1.5 border border-[#DDD9CF] rounded text-[#333333] hover:text-[#1A1A1A] hover:border-[#1A1A1A] bg-white transition-colors cursor-pointer"
         >
-          <ArrowUp className="w-3.5 h-3.5" />
+          <ArrowUp className="w-3.5 h-3.5 text-[#1A1A1A]" />
           <span>Back to Top</span>
         </button>
       </div>

@@ -47,7 +47,7 @@ export const ResourceItem: React.FC<ResourceItemProps> = ({
           {/* Broken link indicator if flagged */}
           {resource.status === 'broken' && (
             <span className="inline-flex items-center gap-0.5 text-[10px] font-semibold text-[#C97064] align-middle select-none" title="Reported as broken mirror">
-              <AlertTriangle className="w-2.5 h-2.5" />
+              <AlertTriangle className="w-2.5 h-2.5 text-[#1A1A1A]" />
               <span>broken</span>
             </span>
           )}
@@ -70,7 +70,7 @@ export const ResourceItem: React.FC<ResourceItemProps> = ({
             title={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
             aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
           >
-            <Bookmark className={`w-3.5 h-3.5 ${isFavorite ? 'fill-[#B85C8A]' : ''}`} />
+            <Bookmark className={`w-3.5 h-3.5 ${isFavorite ? 'fill-[#1A1A1A]' : ''} text-[#1A1A1A]`} />
           </button>
 
           <button
@@ -84,7 +84,7 @@ export const ResourceItem: React.FC<ResourceItemProps> = ({
             title="View details & review"
             aria-label="View details"
           >
-            <Info className="w-3.5 h-3.5" />
+            <Info className="w-3.5 h-3.5 text-[#1A1A1A]" />
           </button>
         </div>
       </div>
@@ -150,7 +150,7 @@ export const ResourceItem: React.FC<ResourceItemProps> = ({
                 className="inline-flex items-center gap-0.5 font-medium underline text-[#1A1A1A] hover:text-[#8B3A2F] cursor-pointer"
               >
                 <span>Visit</span>
-                <ExternalLink className="w-2.5 h-2.5" />
+                <ExternalLink className="w-2.5 h-2.5 text-[#1A1A1A]" />
               </a>
             </div>
           </div>
