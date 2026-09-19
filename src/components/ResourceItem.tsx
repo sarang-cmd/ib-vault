@@ -17,7 +17,6 @@ export const ResourceItem: React.FC<ResourceItemProps> = ({
   onToggleFavorite,
   onSelectResource,
   showAddedDate = false,
-  onResourceClick,
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -28,17 +27,19 @@ export const ResourceItem: React.FC<ResourceItemProps> = ({
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="flex items-baseline justify-between gap-1.5 leading-snug">
-        {/* Resource Name: Plain black underlined text */}
+        {/* Resource Name: Plain black underlined text - click opens details modal */}
         <div className="flex-1 min-w-0 flex items-baseline flex-wrap gap-x-1.5">
-          <a
-            href={resource.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => onResourceClick?.(resource.id)}
-            className="text-[#1A1A1A] underline decoration-1 underline-offset-2 hover:text-[#000000] hover:decoration-[#000000] transition-colors font-medium text-[14.5px] break-words cursor-pointer"
+          <button
+            type="button"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onSelectResource(resource);
+            }}
+            className="text-[#1A1A1A] underline decoration-1 underline-offset-2 hover:text-[#000000] hover:decoration-[#000000] transition-colors font-medium text-[14.5px] break-words cursor-pointer text-left"
           >
             {resource.name}
-          </a>
+          </button>
 
           {/* NEW Badge pill */}
           {resource.is_new && (
@@ -89,6 +90,18 @@ export const ResourceItem: React.FC<ResourceItemProps> = ({
           >
             <Info className="w-3.5 h-3.5 text-[#1A1A1A]" />
           </button>
+
+          {/* External link icon on hover - opens in new tab */}
+          <a
+            href={resource.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-0.5 text-[#888888] hover:text-[#1A1A1A] transition-colors cursor-pointer"
+            title="Open in new tab"
+            aria-label="Open in new tab"
+          >
+            <ExternalLink className="w-3.5 h-3.5 text-[#1A1A1A]" />
+          </a>
         </div>
       </div>
 
