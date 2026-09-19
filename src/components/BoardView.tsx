@@ -1,16 +1,52 @@
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import { Resource } from '../types';
 import { CATEGORY_DEFINITIONS, PINNED_COLUMNS } from '../data/categories';
 import { Column } from './Column';
 import { Filter, ArrowUp } from 'lucide-react';
 
-interface BoardViewProps {
+interface ColumnConfig {
+  id: string;
+  title: string;
+  slug?: string;
+  color: string;
+  textColor: string;
+  iconName: string;
+  isPinned?: boolean;
+  isFavoritesColumn?: boolean;
+  isNewToolsColumn?: boolean;
   resources: Resource[];
-  favorites: string[];
-  onToggleFavorite: (id: string) => void;
-  onSelectResource: (resource: Resource) => void;
-  onOpenAddFavoriteModal: () => void;
-  onViewCategory: (slug: string) => void;
+}
+
+const STORAGE_KEY = 'vault-ib-column-order';
+
+const DEFAULT_COLUMN_ORDER = [
+  'col-trending',
+  'col-favorites',
+  'col-new-tools',
+  ...CATEGORY_DEFINITIONS.map(c => `col-${c.slug}`)
+];
+
+function getSavedColumnOrder(): string[] {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) {
+      const parsed = JSON.parse(saved);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (e) {
+    console.warn('Failed to parse column order', e);
+  }
+  return DEFAULT_COLUMN_ORDER;
+}
+
+function saveColumnOrder(order: string[]) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(order));
+  } catch (e) {
+    console.warn('Failed to save column order', e);
+  }
 }
 
 export const BoardView: React.FC<BoardViewProps> = ({
@@ -22,6 +58,14 @@ export const BoardView: React.FC<BoardViewProps> = ({
   onViewCategory,
 }) => {
   const [selectedSubjectGroup, setSelectedSubjectGroup] = useState<string>('all');
+  const [columnOrder, setColumnOrder] = useState<string[]>(() => getSavedColumnOrder());
+  const [draggedId, setDraggedId] = useState<string | null>(null);
+  const [dragOverId, setDragOverId] = useState<string | null>(null);
+
+  // Save column order to localStorage when it changes
+  useEffect(() => {
+    saveColumnOrder(columnOrder);
+  }, [columnOrder]);
 
   // 1. Trending This Week: top 5 highest-rank resources across the entire dataset
   const trendingResources = useMemo(() => {
@@ -105,12 +149,139 @@ export const BoardView: React.FC<BoardViewProps> = ({
     return CATEGORY_DEFINITIONS;
   }, [selectedSubjectGroup]);
 
+  // Build column configs
+  const columnConfigs = useMemo((): ColumnConfig[] => {
+    const configs: ColumnConfig[] = [
+      {
+        id: 'col-trending',
+        title: PINNED_COLUMNS.trending.name,
+        color: PINNED_COLUMNS.trending.color,
+        textColor: PINNED_COLUMNS.trending.textColor,
+        iconName: PINNED_COLUMNS.trending.iconName,
+        isPinned: true,
+        resources: trendingResources,
+      },
+      {
+        id: 'col-favorites',
+        title: PINNED_COLUMNS.favorites.name,
+        color: PINNED_COLUMNS.favorites.color,
+        textColor: PINNED_COLUMNS.favorites.textColor,
+        iconName: PINNED_COLUMNS.favorites.iconName,
+        isPinned: true,
+        isFavoritesColumn: true,
+        resources: favoriteResources,
+      },
+      {
+        id: 'col-new-tools',
+        title: PINNED_COLUMNS.newTools.name,
+        color: PINNED_COLUMNS.newTools.color,
+        textColor: PINNED_COLUMNS.newTools.textColor,
+        iconName: PINNED_COLUMNS.newTools.iconName,
+        isPinned: true,
+        isNewToolsColumn: true,
+        resources: newToolsResources,
+      },
+      ...filteredCategories.map((cat) => ({
+        id: `col-${cat.slug}`,
+        title: cat.name,
+        slug: cat.slug,
+        color: cat.color,
+        textColor: cat.textColor,
+        iconName: cat.iconName,
+        resources: resources.filter(
+          r => r.category.toLowerCase() === cat.name.toLowerCase()
+        ),
+      })),
+    ];
+    return configs;
+  }, [trendingResources, favoriteResources, newToolsResources, filteredCategories, resources]);
+
+  // Sort columns by saved order
+  const sortedColumns = useMemo(() => {
+    const configMap = new Map(columnConfigs.map(c => [c.id, c]));
+    const ordered = columnOrder
+      .map(id => configMap.get(id))
+      .filter((c): c is ColumnConfig => c !== undefined);
+    // Add any new columns not in saved order
+    const remaining = columnConfigs.filter(c => !columnOrder.includes(c.id));
+    return [...ordered, ...remaining];
+  }, [columnConfigs, columnOrder]);
+
+  // Drag and drop handlers
+  const handleDragStart = useCallback((e: React.DragEvent, id: string) => {
+    setDraggedId(id);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', id);
+  }, []);
+
+  const handleDragOver = useCallback((e: React.DragEvent, id: string) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+    if (id !== draggedId) {
+      setDragOverId(id);
+    }
+  }, [draggedId]);
+
+  const handleDragLeave = useCallback((e: React.DragEvent, id: string) => {
+    e.preventDefault();
+    if (dragOverId === id) {
+      setDragOverId(null);
+    }
+  }, [dragOverId]);
+
+  const handleDrop = useCallback((e: React.DragEvent, targetId: string) => {
+    e.preventDefault();
+    const sourceId = e.dataTransfer.getData('text/plain') || draggedId;
+    if (!sourceId || sourceId === targetId) {
+      setDraggedId(null);
+      setDragOverId(null);
+      return;
+    }
+
+    setColumnOrder(prev => {
+      const sourceIndex = prev.indexOf(sourceId);
+      const targetIndex = prev.indexOf(targetId);
+      if (sourceIndex === -1 || targetIndex === -1) return prev;
+
+      const newOrder = [...prev];
+      const [removed] = newOrder.splice(sourceIndex, 1);
+      newOrder.splice(targetIndex, 0, removed);
+      return newOrder;
+    });
+
+    setDraggedId(null);
+    setDragOverId(null);
+  }, [draggedId]);
+
+  const handleDragEnd = useCallback(() => {
+    setDraggedId(null);
+    setDragOverId(null);
+  }, []);
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Sync columnOrder with localStorage on mount (in case of new columns)
+  useEffect(() => {
+    const saved = getSavedColumnOrder();
+    setColumnOrder(saved);
+  }, []);
+
+  // Ensure new columns are added to order
+  useEffect(() => {
+    setColumnOrder(prev => {
+      const configIds = new Set(columnConfigs.map(c => c.id));
+      const filtered = prev.filter(id => configIds.has(id));
+      const missing = columnConfigs
+        .filter(c => !prev.includes(c.id))
+        .map(c => c.id);
+      return [...filtered, ...missing];
+    });
+  }, [columnConfigs]);
+
   return (
-    <div className="pb-16 pt-4 px-4 sm:px-6 max-w-[1720px] mx-auto">
+    <div className="pb-16 pt-4 px-4 sm:px-6 max-w-full mx-auto">
       {/* Subject Filter Bar */}
       <div className="mb-6 flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#E5E2DA]">
         <div className="flex items-center gap-1.5 flex-wrap">
@@ -141,76 +312,47 @@ export const BoardView: React.FC<BoardViewProps> = ({
         </div>
       </div>
 
-      {/* Masonry / Grid of Trello-Style Columns */}
-      <div className="flex flex-row flex-wrap items-start gap-4 sm:gap-5 justify-start">
-        {/* Pinned Column 1: Trending This Week */}
-        <Column
-          id="col-trending"
-          title={PINNED_COLUMNS.trending.name}
-          color={PINNED_COLUMNS.trending.color}
-          textColor={PINNED_COLUMNS.trending.textColor}
-          iconName={PINNED_COLUMNS.trending.iconName}
-          resources={trendingResources}
-          favorites={favorites}
-          onToggleFavorite={onToggleFavorite}
-          onSelectResource={onSelectResource}
-          isPinned={true}
-        />
-
-        {/* Pinned Column 2: Favorites */}
-        <Column
-          id="col-favorites"
-          title={PINNED_COLUMNS.favorites.name}
-          color={PINNED_COLUMNS.favorites.color}
-          textColor={PINNED_COLUMNS.favorites.textColor}
-          iconName={PINNED_COLUMNS.favorites.iconName}
-          resources={favoriteResources}
-          favorites={favorites}
-          onToggleFavorite={onToggleFavorite}
-          onSelectResource={onSelectResource}
-          onOpenAddFavoriteModal={onOpenAddFavoriteModal}
-          isPinned={true}
-          isFavoritesColumn={true}
-        />
-
-        {/* Pinned Column 3: New Tools */}
-        <Column
-          id="col-new-tools"
-          title={PINNED_COLUMNS.newTools.name}
-          color={PINNED_COLUMNS.newTools.color}
-          textColor={PINNED_COLUMNS.newTools.textColor}
-          iconName={PINNED_COLUMNS.newTools.iconName}
-          resources={newToolsResources}
-          favorites={favorites}
-          onToggleFavorite={onToggleFavorite}
-          onSelectResource={onSelectResource}
-          isPinned={true}
-          isNewToolsColumn={true}
-        />
-
-        {/* Category Columns in specified order */}
-        {filteredCategories.map((cat) => {
-          const catResources = resources.filter(
-            r => r.category.toLowerCase() === cat.name.toLowerCase()
-          );
-
-          return (
+      {/* Responsive CSS Grid of Columns with Drag & Drop */}
+      <div
+        className="grid gap-4"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+          alignItems: 'start',
+        }}
+        role="list"
+        aria-label="Resource columns"
+      >
+        {sortedColumns.map((col, index) => (
+          <div
+            key={col.id}
+            onDragStart={(e) => handleDragStart(e, col.id)}
+            onDragOver={(e) => handleDragOver(e, col.id)}
+            onDragLeave={(e) => handleDragLeave(e, col.id)}
+            onDrop={(e) => handleDrop(e, col.id)}
+            onDragEnd={handleDragEnd}
+            draggable
+            role="listitem"
+            aria-label={`Column: ${col.title}, position ${index + 1}`}
+            className={dragOverId === col.id ? 'ring-2 ring-[#8B3A2F]' : ''}
+          >
             <Column
-              key={cat.slug}
-              id={`col-${cat.slug}`}
-              title={cat.name}
-              slug={cat.slug}
-              color={cat.color}
-              textColor={cat.textColor}
-              iconName={cat.iconName}
-              resources={catResources}
+              {...col}
               favorites={favorites}
               onToggleFavorite={onToggleFavorite}
               onSelectResource={onSelectResource}
+              onOpenAddFavoriteModal={onOpenAddFavoriteModal}
               onViewCategory={onViewCategory}
+              dragHandleProps={{
+                onDragStart: (e) => handleDragStart(e, col.id),
+                onDragOver: (e) => handleDragOver(e, col.id),
+                onDragLeave: (e) => handleDragLeave(e, col.id),
+                onDrop: (e) => handleDrop(e, col.id),
+                onDragEnd: handleDragEnd,
+              }}
             />
-          );
-        })}
+          </div>
+        ))}
       </div>
 
       {/* Floating Back to Top Button */}
@@ -230,3 +372,14 @@ export const BoardView: React.FC<BoardViewProps> = ({
     </div>
   );
 };
+
+interface BoardViewProps {
+  resources: Resource[];
+  favorites: string[];
+  onToggleFavorite: (id: string) => void;
+  onSelectResource: (resource: Resource) => void;
+  onOpenAddFavoriteModal: () => void;
+  onViewCategory: (slug: string) => void;
+}
+
+export default BoardView;

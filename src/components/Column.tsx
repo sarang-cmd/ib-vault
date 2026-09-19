@@ -2,7 +2,7 @@ import React from 'react';
 import { Resource } from '../types';
 import { ResourceItem } from './ResourceItem';
 import { CategoryIcon } from './CategoryIcon';
-import { Plus, ArrowRight } from 'lucide-react';
+import { Plus, ArrowRight, GripVertical } from 'lucide-react';
 
 interface ColumnProps {
   id: string;
@@ -20,6 +20,7 @@ interface ColumnProps {
   isPinned?: boolean;
   isFavoritesColumn?: boolean;
   isNewToolsColumn?: boolean;
+  dragHandleProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 
 export const Column: React.FC<ColumnProps> = ({
@@ -37,18 +38,30 @@ export const Column: React.FC<ColumnProps> = ({
   onViewCategory,
   isFavoritesColumn = false,
   isNewToolsColumn = false,
+  dragHandleProps,
 }) => {
   return (
     <div
       id={id}
-      className="w-full sm:w-[250px] flex-shrink-0 flex flex-col rounded-t-md overflow-visible transition-shadow scroll-mt-20"
+      className="flex flex-col rounded-t-md overflow-visible transition-shadow scroll-mt-20"
+      style={{ minWidth: 0, flex: '1 1 280px' }}
+      {...dragHandleProps}
     >
-      {/* Colored Header Pill: Rounded top corners only, flat where it meets the list body below */}
+      {/* Colored Header Pill */}
       <div
         className="px-3.5 py-2.5 rounded-t-md flex items-center justify-between select-none shadow-2xs"
         style={{ backgroundColor: color, color: textColor }}
       >
         <div className="flex items-center gap-2 min-w-0">
+          {dragHandleProps && (
+            <div
+              className="p-1 rounded hover:bg-black/10 cursor-grab active:cursor-grabbing flex-shrink-0"
+              {...dragHandleProps}
+              aria-label="Drag to reorder"
+            >
+              <GripVertical className="w-4 h-4 opacity-60" />
+            </div>
+          )}
           <CategoryIcon name={iconName} className="w-4 h-4 flex-shrink-0" color="#1A1A1A" />
           <h2 className="font-semibold text-[13.5px] tracking-tight truncate leading-tight">
             {title}
@@ -82,8 +95,8 @@ export const Column: React.FC<ColumnProps> = ({
         </div>
       </div>
 
-      {/* List Body: White or very light gray #FAFAF8, thin 1px border #E5E2DA, barely-visible drop shadow */}
-      <div className="flex-1 bg-[#FAFAF8] border-x border-b border-[#E5E2DA] rounded-b-md p-3.5 shadow-2xs min-h-[140px] flex flex-col justify-between">
+      {/* List Body */}
+      <div className="flex-1 bg-[#FAFAF8] border-x border-b border-[#E5E2DA] rounded-b-md p-3.5 shadow-2xs min-h-[140px] flex flex-col justify-between" style={{ minWidth: 0 }}>
         {resources.length > 0 ? (
           <div className="space-y-0.5 divide-y divide-[#F1EFEA]">
             {resources.map((resource) => (
@@ -99,7 +112,7 @@ export const Column: React.FC<ColumnProps> = ({
           </div>
         ) : (
           <div className="py-6 px-2 text-center my-auto">
-{isFavoritesColumn ? (
+            {isFavoritesColumn ? (
               <div className="space-y-2">
                 <p className="text-xs text-[#777777] italic">No favorites</p>
                 <button
