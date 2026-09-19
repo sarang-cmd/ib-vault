@@ -100,7 +100,7 @@ export const Column: React.FC<ColumnProps> = ({
       {/* List Body */}
       <div className="flex-1 bg-[#FAFAF8] border-x border-b border-[#E5E2DA] rounded-b-md p-3.5 shadow-2xs min-h-[140px] flex flex-col justify-between" style={{ minWidth: 0 }}>
         {resources.length > 0 ? (
-          <div className="space-y-0.5 divide-y divide-[#F1EFEA] pt-1">
+          <div className="space-y-0.5 divide-y divide-[#F1EFEA] pt-2">
             {resources.map((resource) => (
               <ResourceItem
                 key={resource.id}

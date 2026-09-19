@@ -4,7 +4,7 @@ export const INITIAL_ACTIVITY_LOG: ActivityEntry[] = [
   {
     id: 'act-1',
     date: '2026-09-15',
-    text: 'Added 5 new AI study tools: NotebookLM, ExamDojo, Perplexity, Kognity, Aimnova with audio overview capabilities',
+    text: 'Added 4 new AI study tools: NotebookLM, ExamDojo, Perplexity, Aimnova with audio overview capabilities',
     category: 'AI Study Tools'
   },
   {
@@ -40,8 +40,8 @@ export const INITIAL_ACTIVITY_LOG: ActivityEntry[] = [
   {
     id: 'act-7',
     date: '2026-09-01',
-    text: 'Added Kognity AI tutoring platform with adaptive question sets',
-    category: 'AI Study Tools'
+    text: 'Added Kognity interactive digital textbooks with practice questions and progress tracking for IB subjects',
+    category: 'Textbooks & eBooks'
   },
   {
     id: 'act-8',

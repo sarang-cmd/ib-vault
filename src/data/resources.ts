@@ -1379,11 +1379,11 @@ export const INITIAL_RESOURCES: Resource[] = [
     "status": "approved"
   },
   {
-    "id": "cognity-ai-study-tools",
+    "id": "kognity-textbooks-ebooks",
     "name": "Kognity",
     "url": "https://app.kognity.com",
-    "description": "AI tutoring with adaptive question sets",
-    "category": "AI Study Tools",
+    "description": "Interactive digital textbooks with practice questions, exam-style questions, and progress tracking for IB subjects",
+    "category": "Textbooks & eBooks",
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
