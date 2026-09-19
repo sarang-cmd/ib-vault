@@ -20,11 +20,25 @@ export const ResourceItem: React.FC<ResourceItemProps> = ({
 }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const handleCardClick = (e: React.MouseEvent) => {
+    // Don't trigger if clicking on interactive elements
+    const target = e.target as HTMLElement;
+    if (
+      target.closest('button') ||
+      target.closest('a') ||
+      target.closest('[role="button"]')
+    ) {
+      return;
+    }
+    onSelectResource(resource);
+  };
+
   return (
     <div
-      className="relative py-1 group/item"
+      className="relative py-1 group/item cursor-pointer"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
     >
       <div className="flex items-baseline justify-between gap-1.5 leading-snug">
         {/* Resource Name: Plain black underlined text - click opens details modal */}
