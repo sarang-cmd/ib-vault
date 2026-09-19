@@ -37,9 +37,9 @@ for r in resources:
         r['name'] = 'Kognity'
         r['url'] = 'https://app.kognity.com'
 
-# Generate random September 2025 dates
-start_date = date(2025, 9, 1)
-end_date = date(2025, 9, 30)
+# Generate random September 2026 dates
+start_date = date(2026, 9, 1)
+end_date = date(2026, 9, 30)
 
 september_dates = []
 for i in range(len(resources)):
@@ -51,7 +51,7 @@ random.shuffle(september_dates)
 
 for i, r in enumerate(resources):
     if r['is_new']:
-        r['added_date'] = f"2025-09-{random.randint(23, 30):02d}"
+        r['added_date'] = f"2026-09-{random.randint(23, 30):02d}"
     else:
         r['added_date'] = september_dates[i]
 

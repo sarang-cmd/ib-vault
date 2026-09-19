@@ -29,7 +29,7 @@ export const AboutView: React.FC<AboutViewProps> = ({
     return d >= thirtyDaysAgo;
   }).length;
 
-  const lastUpdate = '2025-09-15';
+  const lastUpdate = '2026-09-15';
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

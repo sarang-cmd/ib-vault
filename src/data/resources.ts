@@ -43,7 +43,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -55,7 +55,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -67,7 +67,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -79,7 +79,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -91,7 +91,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -103,7 +103,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -115,7 +115,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -127,7 +127,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -139,7 +139,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -151,7 +151,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -163,7 +163,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -175,7 +175,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -187,7 +187,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -199,7 +199,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -211,7 +211,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -223,7 +223,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -235,7 +235,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -247,7 +247,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -259,7 +259,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": true,
-    "added_date": "2025-01-15",
+    "added_date": "2026-01-15",
     "status": "approved"
   },
   {
@@ -271,7 +271,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -283,7 +283,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -295,7 +295,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -307,7 +307,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -319,7 +319,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -331,7 +331,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -343,7 +343,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -355,7 +355,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -367,7 +367,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -379,7 +379,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -391,7 +391,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -403,7 +403,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -415,7 +415,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": true,
-    "added_date": "2025-01-29",
+    "added_date": "2026-01-29",
     "status": "approved"
   },
   {
@@ -427,7 +427,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -439,7 +439,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -451,7 +451,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -463,7 +463,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -475,7 +475,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -487,7 +487,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": true,
-    "added_date": "2025-01-22",
+    "added_date": "2026-01-22",
     "status": "approved"
   },
   {
@@ -499,7 +499,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -511,7 +511,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -523,7 +523,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -535,7 +535,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -547,7 +547,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": true,
-    "added_date": "2025-02-05",
+    "added_date": "2026-02-05",
     "status": "approved"
   },
   {
@@ -559,7 +559,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -571,7 +571,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -583,7 +583,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -595,7 +595,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -607,7 +607,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -619,7 +619,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -631,7 +631,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -643,7 +643,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -655,7 +655,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -667,7 +667,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -679,7 +679,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -691,7 +691,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -703,7 +703,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -715,7 +715,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -727,7 +727,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -739,7 +739,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -751,7 +751,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -763,7 +763,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -775,7 +775,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -787,7 +787,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -799,7 +799,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -811,7 +811,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -823,7 +823,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -835,7 +835,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -847,7 +847,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -859,7 +859,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -871,7 +871,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -883,7 +883,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -895,7 +895,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -907,7 +907,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -919,7 +919,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -931,7 +931,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -943,7 +943,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -955,7 +955,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -967,7 +967,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -979,7 +979,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -991,7 +991,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1003,7 +1003,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1015,7 +1015,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1027,7 +1027,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1039,7 +1039,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1051,7 +1051,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1063,7 +1063,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1075,7 +1075,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1087,7 +1087,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1099,7 +1099,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1111,7 +1111,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1123,7 +1123,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1135,7 +1135,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1147,7 +1147,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1159,7 +1159,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1171,7 +1171,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1183,7 +1183,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1195,7 +1195,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1207,7 +1207,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1219,7 +1219,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1231,7 +1231,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1243,7 +1243,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1255,7 +1255,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1267,7 +1267,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1279,7 +1279,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1291,7 +1291,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1303,7 +1303,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1315,7 +1315,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1327,7 +1327,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1339,7 +1339,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1351,7 +1351,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1363,7 +1363,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1375,7 +1375,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": true,
-    "added_date": "2025-02-14",
+    "added_date": "2026-02-14",
     "status": "approved"
   },
   {
@@ -1387,7 +1387,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1399,7 +1399,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1411,7 +1411,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": true,
-    "added_date": "2025-02-10",
+    "added_date": "2026-02-10",
     "status": "approved"
   },
   {
@@ -1423,7 +1423,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1435,7 +1435,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1447,7 +1447,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": true,
-    "added_date": "2025-02-18",
+    "added_date": "2026-02-18",
     "status": "approved"
   },
   {
@@ -1459,7 +1459,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1471,7 +1471,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1483,7 +1483,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1495,7 +1495,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1507,7 +1507,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1519,7 +1519,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1531,7 +1531,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1543,7 +1543,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1555,7 +1555,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1567,7 +1567,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1579,7 +1579,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1591,7 +1591,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1603,7 +1603,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1615,7 +1615,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1627,7 +1627,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1639,7 +1639,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1651,7 +1651,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1663,7 +1663,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1675,7 +1675,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1687,7 +1687,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1699,7 +1699,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1711,7 +1711,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1723,7 +1723,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1735,7 +1735,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1747,7 +1747,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1759,7 +1759,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1771,7 +1771,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1783,7 +1783,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1795,7 +1795,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1807,7 +1807,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1819,7 +1819,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1831,7 +1831,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1843,7 +1843,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1855,7 +1855,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1867,7 +1867,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1879,7 +1879,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1891,7 +1891,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 3,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1903,7 +1903,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1915,7 +1915,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1927,7 +1927,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1939,7 +1939,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1951,7 +1951,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1963,7 +1963,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1975,7 +1975,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1987,7 +1987,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -1999,7 +1999,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Freemium",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -2011,7 +2011,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -2023,7 +2023,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 5,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -2035,7 +2035,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   },
   {
@@ -2047,7 +2047,7 @@ export const INITIAL_RESOURCES: Resource[] = [
     "cost": "Free",
     "rank": 4,
     "is_new": false,
-    "added_date": "2024-11-10",
+    "added_date": "2025-11-10",
     "status": "approved"
   }
 ];
