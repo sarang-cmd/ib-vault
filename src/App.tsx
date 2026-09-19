@@ -5,6 +5,7 @@ import { TopBar } from './components/TopBar';
 import { Sidebar } from './components/Sidebar';
 import { BoardView } from './components/BoardView';
 import { CategoryView } from './components/CategoryView';
+import { DashboardView } from './components/DashboardView';
 import { AboutView } from './components/AboutView';
 import { SubmitModal } from './components/SubmitModal';
 import { AdminView } from './components/AdminView';
@@ -55,6 +56,7 @@ export function App() {
     if (effectivePath === '/about') return { view: 'about' };
     if (effectivePath === '/submit') return { view: 'submit' };
     if (effectivePath === '/admin') return { view: 'admin' };
+    if (effectivePath === '/dashboard') return { view: 'dashboard' };
     if (effectivePath.startsWith('/category/')) {
       const slug = effectivePath.replace('/category/', '');
       return { view: 'category', slug };
@@ -102,6 +104,7 @@ export function App() {
     if (route.view === 'about') url = '/about';
     else if (route.view === 'submit') url = '/submit';
     else if (route.view === 'admin') url = '/admin';
+    else if (route.view === 'dashboard') url = '/dashboard';
     else if (route.view === 'category') url = `/category/${route.slug}`;
 
     window.history.pushState(null, '', url);
@@ -193,12 +196,21 @@ export function App() {
           onOpenSearch={() => setIsSearchOpen(true)}
           onOpenSettings={() => setIsSettingsOpen(true)}
           onNavigateHome={() => navigate({ view: 'board' })}
+          onNavigateDashboard={() => navigate({ view: 'dashboard' })}
           onOpenSubmit={() => setIsSubmitModalOpen(true)}
           totalCount={resources.length}
         />
 
         {/* Main Content Views */}
         <main className="flex-1">
+          {currentRoute.view === 'dashboard' && (
+            <DashboardView
+              resources={resources}
+              onNavigateBoard={() => navigate({ view: 'board' })}
+              onNavigateCategory={(slug) => navigate({ view: 'category', slug })}
+            />
+          )}
+
           {currentRoute.view === 'board' && (
             <BoardView
               resources={resources}
@@ -256,6 +268,7 @@ export function App() {
           isOpen={isSidebarOpen}
           onClose={() => setIsSidebarOpen(false)}
           onNavigateHome={() => navigate({ view: 'board' })}
+          onNavigateDashboard={() => navigate({ view: 'dashboard' })}
           onNavigateAbout={() => navigate({ view: 'about' })}
           onNavigateSubmit={() => {
             setIsSubmitModalOpen(true);

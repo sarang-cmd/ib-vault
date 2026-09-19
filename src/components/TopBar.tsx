@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Search, Settings, PlusCircle, Sun, Moon } from 'lucide-react';
+import { Menu, Search, Settings, PlusCircle, Sun, Moon, LayoutDashboard } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 
 interface TopBarProps {
@@ -8,6 +8,7 @@ interface TopBarProps {
   onOpenSettings: () => void;
   onNavigateHome: () => void;
   onOpenSubmit: () => void;
+  onNavigateDashboard: () => void;
   totalCount: number;
 }
 
@@ -17,6 +18,7 @@ export const TopBar: React.FC<TopBarProps> = ({
   onOpenSettings,
   onNavigateHome,
   onOpenSubmit,
+  onNavigateDashboard,
   totalCount,
 }) => {
   const { theme, toggleTheme } = useTheme();
@@ -51,6 +53,16 @@ export const TopBar: React.FC<TopBarProps> = ({
 
         {/* Center/Right: Quick Search & Actions */}
         <div className="flex items-center gap-2 sm:gap-3">
+          {/* Dashboard Link */}
+          <button
+            type="button"
+            onClick={onNavigateDashboard}
+            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded border border-[#D5D0C5] text-[#333333] hover:text-[#1A1A1A] hover:border-[#1A1A1A] bg-white transition-colors cursor-pointer"
+          >
+            <LayoutDashboard className="w-3.5 h-3.5 text-[#1A1A1A]" />
+            <span>Dashboard</span>
+          </button>
+
           {/* Quick Submit link */}
           <button
             type="button"

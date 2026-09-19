@@ -33,6 +33,7 @@ export interface ActivityEntry {
 
 export type VaultRoute = 
   | { view: 'board' }
+  | { view: 'dashboard' }
   | { view: 'category'; slug: string }
   | { view: 'about' }
   | { view: 'submit' }

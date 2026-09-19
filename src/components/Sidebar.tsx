@@ -10,7 +10,8 @@ import {
   Shield,
   ExternalLink,
   Flame,
-  Sparkles
+  Sparkles,
+  LayoutDashboard
 } from 'lucide-react';
 import { CATEGORY_DEFINITIONS } from '../data/categories';
 import { CategoryIcon } from './CategoryIcon';
@@ -22,6 +23,7 @@ interface SidebarProps {
   onNavigateAbout: () => void;
   onNavigateSubmit: () => void;
   onNavigateAdmin: () => void;
+  onNavigateDashboard: () => void;
   onSelectCategory: (slug: string) => void;
   onScrollToColumn: (colId: string) => void;
   onExportPdf: () => void;
@@ -37,6 +39,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onNavigateAbout,
   onNavigateSubmit,
   onNavigateAdmin,
+  onNavigateDashboard,
   onSelectCategory,
   onScrollToColumn,
   onExportPdf,
@@ -91,6 +94,18 @@ export const Sidebar: React.FC<SidebarProps> = ({
             >
               <Home className="w-4 h-4 text-[#1A1A1A]" />
               <span>Home</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => {
+                onNavigateDashboard();
+                onClose();
+              }}
+              className="w-full flex items-center gap-3 px-3 py-2 text-sm font-medium rounded hover:bg-[#EBE8E0] text-[#1A1A1A] transition-colors cursor-pointer text-left"
+            >
+              <LayoutDashboard className="w-4 h-4 text-[#1A1A1A]" />
+              <span>Dashboard</span>
             </button>
 
             <button
