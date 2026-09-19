@@ -292,13 +292,36 @@ export const BoardView: React.FC<BoardViewProps> = ({
   // Sort columns by saved order
   const sortedColumns = useMemo(() => {
     const configMap = new Map(columnConfigs.map(c => [c.id, c]));
+    
+    // When "All Columns" is selected, always put pinned columns first in fixed order
+    if (selectedSubjectGroup === 'all') {
+      const pinnedOrder = ['col-trending', 'col-favorites', 'col-new-tools'];
+      const pinnedCols = pinnedOrder
+        .map(id => configMap.get(id))
+        .filter((c): c is ColumnConfig => c !== undefined);
+      
+      // Get non-pinned columns from saved order
+      const nonPinnedOrder = columnOrder.filter(id => !['col-trending', 'col-favorites', 'col-new-tools'].includes(id));
+      const orderedNonPinned = nonPinnedOrder
+        .map(id => configMap.get(id))
+        .filter((c): c is ColumnConfig => c !== undefined);
+      
+      // Add any new non-pinned columns not in saved order
+      const pinnedIds = new Set(['col-trending', 'col-favorites', 'col-new-tools']);
+      const remaining = columnConfigs
+        .filter(c => !pinnedIds.has(c.id) && !columnOrder.includes(c.id));
+      
+      return [...pinnedCols, ...orderedNonPinned, ...remaining];
+    }
+    
+    // For filtered views, use saved order for all columns
+    const configMap = new Map(columnConfigs.map(c => [c.id, c]));
     const ordered = columnOrder
       .map(id => configMap.get(id))
       .filter((c): c is ColumnConfig => c !== undefined);
-    // Add any new columns not in saved order
     const remaining = columnConfigs.filter(c => !columnOrder.includes(c.id));
     return [...ordered, ...remaining];
-  }, [columnConfigs, columnOrder]);
+  }, [columnConfigs, columnOrder, selectedSubjectGroup]);
 
   // Drag and drop handlers
   const handleDragStart = useCallback((e: React.DragEvent, id: string) => {
