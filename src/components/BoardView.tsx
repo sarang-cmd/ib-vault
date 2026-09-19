@@ -2,7 +2,7 @@ import React, { useMemo, useState, useEffect, useCallback } from 'react';
 import { Resource } from '../types';
 import { CATEGORY_DEFINITIONS, PINNED_COLUMNS } from '../data/categories';
 import { Column } from './Column';
-import { Filter, ArrowUp } from 'lucide-react';
+import { Filter, ArrowUp, ChevronUp, ChevronDown } from 'lucide-react';
 
 interface ColumnConfig {
   id: string;
@@ -58,7 +58,14 @@ export const BoardView: React.FC<BoardViewProps> = ({
   onViewCategory,
   isReorderMode = false,
 }) => {
-  const [selectedSubjectGroup, setSelectedSubjectGroup] = useState<string>('all');
+  const [selectedSubjectGroup, setSelectedSubjectGroup] = useState<string>(() => {
+    try {
+      const saved = localStorage.getItem('vault-ib-subject-group');
+      return saved || 'all';
+    } catch {
+      return 'all';
+    }
+  });
   const [columnOrder, setColumnOrder] = useState<string[]>(() => getSavedColumnOrder());
   const [draggedId, setDraggedId] = useState<string | null>(null);
   const [dragOverId, setDragOverId] = useState<string | null>(null);
@@ -70,11 +77,27 @@ export const BoardView: React.FC<BoardViewProps> = ({
       return {};
     }
   });
+  const [showFilters, setShowFilters] = useState(false);
+  const [costFilter, setCostFilter] = useState<'all' | 'Free' | 'Freemium'>('all');
+  const [categoryFilter, setCategoryFilter] = useState<string>('all');
+  const [statusFilter, setStatusFilter] = useState<'all' | 'approved' | 'broken'>('all');
+  const [sortBy, setSortBy] = useState<'name' | 'category' | 'rating' | 'date' | 'clicks'>('name');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
+
+  // Save subject group to localStorage
+  useEffect(() => {
+    localStorage.setItem('vault-ib-subject-group', selectedSubjectGroup);
+  }, [selectedSubjectGroup]);
 
   // Save click counts to localStorage
   useEffect(() => {
     localStorage.setItem('vault-ib-click-counts', JSON.stringify(clickCounts));
   }, [clickCounts]);
+
+  // Save column order to localStorage when it changes
+  useEffect(() => {
+    saveColumnOrder(columnOrder);
+  }, [columnOrder]);
 
   const handleResourceClick = useCallback((resourceId: string) => {
     setClickCounts(prev => ({
@@ -83,8 +106,6 @@ export const BoardView: React.FC<BoardViewProps> = ({
     }));
   }, []);
 
-  // Pass handleResourceClick to Column via context or props would be cleaner
-  // For now, suppress unused warning as it's passed through prop chain
   void handleResourceClick;
 
   // Save column order to localStorage when it changes
@@ -201,38 +222,57 @@ export const BoardView: React.FC<BoardViewProps> = ({
     return CATEGORY_DEFINITIONS;
   }, [selectedSubjectGroup]);
 
-  // Build column configs
+  // Filter resources by cost, category, status
+  const filteredResources = useMemo(() => {
+    return resources.filter(r => {
+      const matchesCost = costFilter === 'all' || r.cost === costFilter;
+      const matchesCategory = categoryFilter === 'all' || r.category === categoryFilter;
+      const matchesStatus = statusFilter === 'all' || r.status === statusFilter;
+      return matchesCost && matchesCategory && matchesStatus;
+    });
+  }, [resources, costFilter, categoryFilter, statusFilter]);
+
+  // Build column configs - only show pinned columns when "All Columns" is selected
   const columnConfigs = useMemo((): ColumnConfig[] => {
-    const configs: ColumnConfig[] = [
-      {
-        id: 'col-trending',
-        title: PINNED_COLUMNS.trending.name,
-        color: PINNED_COLUMNS.trending.color,
-        textColor: PINNED_COLUMNS.trending.textColor,
-        iconName: PINNED_COLUMNS.trending.iconName,
-        isPinned: true,
-        resources: trendingResources,
-      },
-      {
-        id: 'col-favorites',
-        title: PINNED_COLUMNS.favorites.name,
-        color: PINNED_COLUMNS.favorites.color,
-        textColor: PINNED_COLUMNS.favorites.textColor,
-        iconName: PINNED_COLUMNS.favorites.iconName,
-        isPinned: true,
-        isFavoritesColumn: true,
-        resources: favoriteResources,
-      },
-      {
-        id: 'col-new-tools',
-        title: PINNED_COLUMNS.newTools.name,
-        color: PINNED_COLUMNS.newTools.color,
-        textColor: PINNED_COLUMNS.newTools.textColor,
-        iconName: PINNED_COLUMNS.newTools.iconName,
-        isPinned: true,
-        isNewToolsColumn: true,
-        resources: newToolsResources,
-      },
+    const configs: ColumnConfig[] = [];
+
+    // Only show pinned columns when "All Columns" is selected
+    if (selectedSubjectGroup === 'all') {
+      configs.push(
+        {
+          id: 'col-trending',
+          title: PINNED_COLUMNS.trending.name,
+          color: PINNED_COLUMNS.trending.color,
+          textColor: PINNED_COLUMNS.trending.textColor,
+          iconName: PINNED_COLUMNS.trending.iconName,
+          isPinned: true,
+          resources: trendingResources,
+        },
+        {
+          id: 'col-favorites',
+          title: PINNED_COLUMNS.favorites.name,
+          color: PINNED_COLUMNS.favorites.color,
+          textColor: PINNED_COLUMNS.favorites.textColor,
+          iconName: PINNED_COLUMNS.favorites.iconName,
+          isPinned: true,
+          isFavoritesColumn: true,
+          resources: favoriteResources,
+        },
+        {
+          id: 'col-new-tools',
+          title: PINNED_COLUMNS.newTools.name,
+          color: PINNED_COLUMNS.newTools.color,
+          textColor: PINNED_COLUMNS.newTools.textColor,
+          iconName: PINNED_COLUMNS.newTools.iconName,
+          isPinned: true,
+          isNewToolsColumn: true,
+          resources: newToolsResources,
+        }
+      );
+    }
+
+    // Category columns based on selected filter
+    configs.push(
       ...filteredCategories.map((cat) => ({
         id: `col-${cat.slug}`,
         title: cat.name,
@@ -243,10 +283,11 @@ export const BoardView: React.FC<BoardViewProps> = ({
         resources: resources.filter(
           r => r.category.toLowerCase() === cat.name.toLowerCase()
         ),
-      })),
-    ];
+      }))
+    );
+
     return configs;
-  }, [trendingResources, favoriteResources, newToolsResources, filteredCategories, resources]);
+  }, [trendingResources, favoriteResources, newToolsResources, filteredCategories, resources, selectedSubjectGroup]);
 
   // Sort columns by saved order
   const sortedColumns = useMemo(() => {
@@ -359,7 +400,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
 
         <div className="flex items-center gap-2 text-xs text-[#666666]">
           <span>
-            Showing <strong>{filteredCategories.length + 3}</strong> columns and <strong>{resources.length}</strong> resources
+            Showing <strong>{selectedSubjectGroup === 'all' ? filteredCategories.length + 3 : filteredCategories.length}</strong> columns and <strong>{resources.length}</strong> resources
           </span>
         </div>
       </div>
