@@ -17,6 +17,7 @@ import { exportCategoryToPdf } from './lib/pdfExport';
 import { Printer } from 'lucide-react';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { ThemeProvider } from './context/ThemeContext';
 
 const FAVORITES_STORAGE_KEY = 'ibvault_favorites';
 
@@ -174,107 +175,108 @@ export function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F4F2ED] text-[#1A1A1A]">
-      <Analytics />
-      <SpeedInsights />
-      {isLoading && (
-        <div className="fixed inset-0 z-50 bg-[#F4F2ED] flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-10 h-10 border-3 border-[#8B3A2F] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-            <p className="text-sm text-[#666666]">Loading Vault IB...</p>
+    <ThemeProvider>
+      <div className="min-h-screen flex flex-col bg-[#F4F2ED] text-[#1A1A1A]">
+        <Analytics />
+        <SpeedInsights />
+        {isLoading && (
+          <div className="fixed inset-0 z-50 bg-[#F4F2ED] flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-10 h-10 border-3 border-[#8B3A2F] border-t-transparent rounded-full animate-spin mx-auto mb-3" />
+              <p className="text-sm text-[#666666]">Loading Vault IB...</p>
+            </div>
           </div>
-        </div>
-      )}
-      {/* Sticky Top Bar */}
-      <TopBar
-        onToggleSidebar={() => setIsSidebarOpen(true)}
-        onOpenSearch={() => setIsSearchOpen(true)}
-        onOpenSettings={() => setIsSettingsOpen(true)}
-        onNavigateHome={() => navigate({ view: 'board' })}
-        onOpenSubmit={() => setIsSubmitModalOpen(true)}
-        totalCount={resources.length}
-      />
-
-      {/* Main Content Views */}
-      <main className="flex-1">
-        {currentRoute.view === 'board' && (
-          <BoardView
-            resources={resources}
-            favorites={favorites}
-            onToggleFavorite={handleToggleFavorite}
-            onSelectResource={(res) => setSelectedResource(res)}
-            onOpenAddFavoriteModal={() => setIsAddFavoriteModalOpen(true)}
-            onViewCategory={(slug) => navigate({ view: 'category', slug })}
-            isReorderMode={isReorderMode}
-          />
         )}
+        {/* Sticky Top Bar */}
+        <TopBar
+          onToggleSidebar={() => setIsSidebarOpen(true)}
+          onOpenSearch={() => setIsSearchOpen(true)}
+          onOpenSettings={() => setIsSettingsOpen(true)}
+          onNavigateHome={() => navigate({ view: 'board' })}
+          onOpenSubmit={() => setIsSubmitModalOpen(true)}
+          totalCount={resources.length}
+        />
 
-        {currentRoute.view === 'category' && (
-          <CategoryView
-            slug={currentRoute.slug}
-            resources={resources}
-            favorites={favorites}
-            onToggleFavorite={handleToggleFavorite}
-            onSelectResource={(res) => setSelectedResource(res)}
-            onNavigateHome={() => navigate({ view: 'board' })}
-            onSelectCategory={(slug) => navigate({ view: 'category', slug })}
-            onReportResource={(res) => setReportTargetResource(res)}
-          />
-        )}
+        {/* Main Content Views */}
+        <main className="flex-1">
+          {currentRoute.view === 'board' && (
+            <BoardView
+              resources={resources}
+              favorites={favorites}
+              onToggleFavorite={handleToggleFavorite}
+              onSelectResource={(res) => setSelectedResource(res)}
+              onOpenAddFavoriteModal={() => setIsAddFavoriteModalOpen(true)}
+              onViewCategory={(slug) => navigate({ view: 'category', slug })}
+              isReorderMode={isReorderMode}
+            />
+          )}
 
-        {currentRoute.view === 'about' && (
-          <AboutView
-            resources={resources}
-            onNavigateHome={() => navigate({ view: 'board' })}
-            onNavigateSubmit={() => navigate({ view: 'submit' })}
-            onOpenReportModal={() => setReportTargetResource(resources[0] || null)}
-          />
-        )}
+          {currentRoute.view === 'category' && (
+            <CategoryView
+              slug={currentRoute.slug}
+              resources={resources}
+              favorites={favorites}
+              onToggleFavorite={handleToggleFavorite}
+              onSelectResource={(res) => setSelectedResource(res)}
+              onNavigateHome={() => navigate({ view: 'board' })}
+              onSelectCategory={(slug) => navigate({ view: 'category', slug })}
+              onReportResource={(res) => setReportTargetResource(res)}
+            />
+          )}
 
-        {currentRoute.view === 'submit' && (
-          <SubmitModal
-            isOpen={true}
-            isStandalonePage={true}
-            onClose={() => navigate({ view: 'board' })}
-            onNavigateHome={() => navigate({ view: 'board' })}
-          />
-        )}
+          {currentRoute.view === 'about' && (
+            <AboutView
+              resources={resources}
+              onNavigateHome={() => navigate({ view: 'board' })}
+              onNavigateSubmit={() => navigate({ view: 'submit' })}
+              onOpenReportModal={() => setReportTargetResource(resources[0] || null)}
+            />
+          )}
 
-        {currentRoute.view === 'admin' && (
-          <AdminView
-            resources={resources}
-            onRefreshResources={handleRefreshResources}
-            onNavigateHome={() => navigate({ view: 'board' })}
-          />
-        )}
-      </main>
+          {currentRoute.view === 'submit' && (
+            <SubmitModal
+              isOpen={true}
+              isStandalonePage={true}
+              onClose={() => navigate({ view: 'board' })}
+              onNavigateHome={() => navigate({ view: 'board' })}
+            />
+          )}
 
-      {/* Sidebar Drawer */}
-      <Sidebar
-        isOpen={isSidebarOpen}
-        onClose={() => setIsSidebarOpen(false)}
-        onNavigateHome={() => navigate({ view: 'board' })}
-        onNavigateAbout={() => navigate({ view: 'about' })}
-        onNavigateSubmit={() => {
-          setIsSubmitModalOpen(true);
-        }}
-        onNavigateAdmin={() => navigate({ view: 'admin' })}
-        onSelectCategory={(slug) => navigate({ view: 'category', slug })}
-        onScrollToColumn={handleScrollToColumn}
-        onExportPdf={handleExportCurrentPdf}
-        favoritesCount={favorites.length}
-        activeCategorySlug={currentRoute.view === 'category' ? currentRoute.slug : undefined}
-        isCategoryView={currentRoute.view === 'category'}
-      />
+          {currentRoute.view === 'admin' && (
+            <AdminView
+              resources={resources}
+              onRefreshResources={handleRefreshResources}
+              onNavigateHome={() => navigate({ view: 'board' })}
+            />
+          )}
+        </main>
 
-      {/* Global Search Modal */}
-      <SearchModal
-        isOpen={isSearchOpen}
-        onClose={() => setIsSearchOpen(false)}
-        resources={resources}
-        favorites={favorites}
-        onToggleFavorite={handleToggleFavorite}
-        onSelectResource={(res) => setSelectedResource(res)}
+        {/* Sidebar Drawer */}
+        <Sidebar
+          isOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+          onNavigateHome={() => navigate({ view: 'board' })}
+          onNavigateAbout={() => navigate({ view: 'about' })}
+          onNavigateSubmit={() => {
+            setIsSubmitModalOpen(true);
+          }}
+          onNavigateAdmin={() => navigate({ view: 'admin' })}
+          onSelectCategory={(slug) => navigate({ view: 'category', slug })}
+          onScrollToColumn={handleScrollToColumn}
+          onExportPdf={handleExportCurrentPdf}
+          favoritesCount={favorites.length}
+          activeCategorySlug={currentRoute.view === 'category' ? currentRoute.slug : undefined}
+          isCategoryView={currentRoute.view === 'category'}
+        />
+
+        {/* Global Search Modal */}
+        <SearchModal
+          isOpen={isSearchOpen}
+          onClose={() => setIsSearchOpen(false)}
+          resources={resources}
+          favorites={favorites}
+          onToggleFavorite={handleToggleFavorite}
+          onSelectResource={(res) => setSelectedResource(res)}
         onViewCategory={(slug) => navigate({ view: 'category', slug })}
       />
 
@@ -346,6 +348,7 @@ export function App() {
         </button>
       </div>
     </div>
+  </ThemeProvider>
   );
 }
 

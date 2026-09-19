@@ -1,5 +1,6 @@
 import React from 'react';
-import { Menu, Search, Settings, PlusCircle } from 'lucide-react';
+import { Menu, Search, Settings, PlusCircle, Sun, Moon } from 'lucide-react';
+import { useTheme } from '../context/ThemeContext';
 
 interface TopBarProps {
   onToggleSidebar: () => void;
@@ -18,6 +19,7 @@ export const TopBar: React.FC<TopBarProps> = ({
   onOpenSubmit,
   totalCount,
 }) => {
+  const { theme, toggleTheme } = useTheme();
   return (
     <header className="sticky top-0 z-30 bg-[#F4F2ED] border-b border-[#E5E2DA] transition-colors">
       <div className="max-w-[1720px] mx-auto px-4 sm:px-6 h-15 flex items-center justify-between">
@@ -73,6 +75,16 @@ export const TopBar: React.FC<TopBarProps> = ({
             <kbd className="hidden sm:inline-block text-[10px] uppercase font-sans font-medium px-1.5 py-0.5 bg-[#F4F2ED] text-[#666666] border border-[#DDD9CF] rounded">
               ⌘K
             </kbd>
+          </button>
+
+          {/* Dark Mode Toggle */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="p-2 rounded text-[#444444] hover:text-[#1A1A1A] hover:bg-[#EBE8E0] transition-colors focus:outline-none focus:ring-1 focus:ring-[#8B3A2F] cursor-pointer"
+            aria-label="Toggle dark mode"
+          >
+            {theme === 'light' ? <Sun className="w-4.5 h-4.5 text-[#1A1A1A]" /> : <Moon className="w-4.5 h-4.5 text-[#1A1A1A]" />}
           </button>
 
           {/* Settings / Gear */}
