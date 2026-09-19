@@ -8,6 +8,23 @@
     --text-primary: #1A1A1A;
     --text-body: #333333;
     --brand-logo: #8B3A2F;
+    --bg-sidebar: #FAFAF8;
+    --bg-card: #FFFFFF;
+    --text-muted: #666666;
+    --border-color: #E5E2DA;
+  }
+
+  .dark {
+    --bg-page: #1A1A1A;
+    --bg-column: #242424;
+    --border-column: #333333;
+    --text-primary: #F4F2ED;
+    --text-body: #E0E0E0;
+    --brand-logo: #D98B5F;
+    --bg-sidebar: #242424;
+    --bg-card: #2D2D2D;
+    --text-muted: #999999;
+    --border-color: #444444;
   }
 
   body {
@@ -37,6 +54,14 @@
     color: #000000;
     text-decoration-thickness: 1.5px;
   }
+}
+
+.dark .vault-link {
+  color: var(--text-primary);
+}
+
+.dark .vault-link:hover {
+  color: var(--brand-logo);
 }
 
 .font-logo {
