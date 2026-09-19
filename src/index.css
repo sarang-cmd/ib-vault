@@ -6,6 +6,7 @@
     --bg-column: #FAFAF8;
     --border-column: #E5E2DA;
     --text-primary: #1A1A1A;
+    --text-primary-rgb: 26, 26, 26;
     --text-body: #333333;
     --brand-logo: #8B3A2F;
     --bg-sidebar: #FAFAF8;
@@ -19,6 +20,7 @@
     --bg-column: #242424;
     --border-column: #333333;
     --text-primary: #F4F2ED;
+    --text-primary-rgb: 244, 242, 237;
     --text-body: #E0E0E0;
     --brand-logo: #D98B5F;
     --bg-sidebar: #242424;

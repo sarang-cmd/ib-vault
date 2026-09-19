@@ -69,7 +69,7 @@ export const BoardView: React.FC<BoardViewProps> = ({
   const [columnOrder, setColumnOrder] = useState<string[]>(() => getSavedColumnOrder());
   const [draggedId, setDraggedId] = useState<string | null>(null);
   const [dragOverId, setDragOverId] = useState<string | null>(null);
-  const [clickCounts, setClickCounts] = useState<Record<string, number>>(() => {
+  const [clickCounts] = useState<Record<string, number>>(() => {
     try {
       const saved = localStorage.getItem('vault-ib-click-counts');
       return saved ? JSON.parse(saved) : {};
@@ -83,24 +83,11 @@ export const BoardView: React.FC<BoardViewProps> = ({
     localStorage.setItem('vault-ib-subject-group', selectedSubjectGroup);
   }, [selectedSubjectGroup]);
 
-  // Save click counts to localStorage
-  useEffect(() => {
-    localStorage.setItem('vault-ib-click-counts', JSON.stringify(clickCounts));
-  }, [clickCounts]);
-
   // Save column order to localStorage when it changes
   useEffect(() => {
     saveColumnOrder(columnOrder);
   }, [columnOrder]);
 
-  const handleResourceClick = useCallback((resourceId: string) => {
-    setClickCounts(prev => ({
-      ...prev,
-      [resourceId]: (prev[resourceId] || 0) + 1
-    }));
-  }, []);
-
-  void handleResourceClick;
 
   // Save column order to localStorage when it changes
   useEffect(() => {
@@ -444,7 +431,6 @@ export const BoardView: React.FC<BoardViewProps> = ({
               onSelectResource={onSelectResource}
               onOpenAddFavoriteModal={onOpenAddFavoriteModal}
               onViewCategory={onViewCategory}
-              handleResourceClick={handleResourceClick}
               dragHandleProps={isReorderMode ? {
                 onDragStart: (e) => handleDragStart(e, col.id),
                 onDragOver: (e) => handleDragOver(e, col.id),

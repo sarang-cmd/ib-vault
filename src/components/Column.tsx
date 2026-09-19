@@ -21,7 +21,6 @@ interface ColumnProps {
   isFavoritesColumn?: boolean;
   isNewToolsColumn?: boolean;
   dragHandleProps?: React.HTMLAttributes<HTMLDivElement>;
-  handleResourceClick?: (id: string) => void;
 }
 
 export const Column: React.FC<ColumnProps> = ({
@@ -40,7 +39,6 @@ export const Column: React.FC<ColumnProps> = ({
   isFavoritesColumn = false,
   isNewToolsColumn = false,
   dragHandleProps,
-  handleResourceClick,
 }) => {
   return (
     <div
@@ -64,7 +62,7 @@ export const Column: React.FC<ColumnProps> = ({
               <GripVertical className="w-4 h-4 opacity-60" />
             </div>
           )}
-          <CategoryIcon name={iconName} className="w-4 h-4 flex-shrink-0" color="#1A1A1A" />
+          <CategoryIcon name={iconName} className="w-4 h-4 flex-shrink-0" color="var(--text-primary)" />
           <h2 className="font-semibold text-[13.5px] tracking-tight truncate leading-tight">
             {title}
           </h2>
@@ -75,8 +73,8 @@ export const Column: React.FC<ColumnProps> = ({
           <span
             className="text-[11px] font-bold px-1.5 py-0.2 rounded-full"
             style={{
-              backgroundColor: 'rgba(26, 26, 26, 0.12)',
-              color: '#1A1A1A'
+              backgroundColor: 'rgba(var(--text-primary-rgb), 0.12)',
+              color: 'var(--text-primary)'
             }}
           >
             {resources.length}
@@ -109,7 +107,6 @@ export const Column: React.FC<ColumnProps> = ({
                 onToggleFavorite={onToggleFavorite}
                 onSelectResource={onSelectResource}
                 showAddedDate={isNewToolsColumn}
-                onResourceClick={(id) => { handleResourceClick?.(id); onSelectResource(resource); }}
               />
             ))}
           </div>
